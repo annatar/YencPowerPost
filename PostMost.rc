@@ -1,0 +1,1267 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\PostMost.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\PostMost.ico"
+IDR_POSTMOTYPE          ICON    DISCARDABLE     "res\\PostMostDoc.ico"
+IDI_ICON_QUESTION       ICON    DISCARDABLE     "res\\QUESTION.ICO"
+IDI_ICON_ERROR          ICON    DISCARDABLE     "res\\ERROR.ICO"
+IDI_ICON_STOP_WATCH     ICON    DISCARDABLE     "res\\stopwatch.ico"
+IDI_ICON_TRAY_READY     ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_ICON_TRAY_POSTING   ICON    DISCARDABLE     "res\\ico00001.ico"
+IDI_ICON_TRAY_ERROR     ICON    DISCARDABLE     "res\\ico00002.ico"
+IDI_ICON_TRAY_WAITING   ICON    DISCARDABLE     "res\\ico00003.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+ID_BITMAP_IMAGELIST     BITMAP  DISCARDABLE     "res\\ListIcons.bmp"
+IDB_STATEICONS          BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+IDB_BITMAP_ABOUT        BITMAP  DISCARDABLE     "res\\logo.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  20, 20
+BEGIN
+    BUTTON      ID_POST_SETTINGS
+    SEPARATOR
+    BUTTON      ID_FILE_ADDFILES
+    SEPARATOR
+    BUTTON      ID_FILE_HISTORY
+    SEPARATOR
+    BUTTON      ID_GENERATE_PAR2_VOL
+    SEPARATOR
+    BUTTON      ID_FILE_TASK_PROPERTIES
+    BUTTON      ID_MOVE_TASK_UP
+    BUTTON      ID_MOVE_TASK_DOWN
+    BUTTON      ID_MOVE_TASK_TOP
+    BUTTON      ID_MOVE_TASK_BOTTOM
+    BUTTON      ID_FILE_CLEARSELECTED
+    BUTTON      ID_FILE_CLEARLIST
+    BUTTON      ID_FILE_CLEARDONE
+    SEPARATOR
+    BUTTON      ID_POST_START_AT
+    BUTTON      ID_POST_START
+    BUTTON      ID_POST_STOP
+    SEPARATOR
+    BUTTON      ID_ENCODE_START
+    BUTTON      ID_ENCODE_STOP
+    SEPARATOR
+    BUTTON      ID_POST_THREADS
+    BUTTON      ID_POST_ENCODES
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Start &Posting !\tCTRL-R",    ID_POST_START
+        MENUITEM "&Stop Posting\tCTRL-S",       ID_POST_STOP
+        MENUITEM SEPARATOR
+        MENUITEM "&Add Files To Queue..\tCTRL-Q", ID_FILE_ADDFILES
+        MENUITEM "&Hold Files",                 ID_FILE_SET_HOLD
+        MENUITEM "&Generate .par2 files",       ID_GENERATE_PAR2_VOL
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Completed Files",       ID_FILE_CLEARDONE
+        MENUITEM "Clear Selected Files",        ID_FILE_CLEARSELECTED
+        MENUITEM "&Clear All Files",            ID_FILE_CLEARLIST
+        MENUITEM SEPARATOR
+        MENUITEM "Re-Queue Files In Error",     ID_FILE_CLEAR_ERRORS
+        MENUITEM "Re-Queue Selected Files",     ID_FILE_QUEUE_SEL
+        MENUITEM "Re-Queue All Files",          ID_FILE_QUEUE_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "Re-Assign Newsgroups...\tCTRL-N", 
+                                                ID_FILE_REASSIGN_NEWSGROUPS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tCTRL-X",               ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "Status &Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&History ...\tCTRL-H",        ID_FILE_HISTORY
+        MENUITEM SEPARATOR
+        POPUP "Move Selected Items"
+        BEGIN
+            MENUITEM "&Up One\tCTRL-U",             ID_MOVE_TASK_UP
+            MENUITEM "&Down One\tCTRL-D",           ID_MOVE_TASK_DOWN
+            MENUITEM "To &Top\tCTRL-T",             ID_MOVE_TASK_TOP
+            MENUITEM "To &Bottom\tCTRL-B",          ID_MOVE_TASK_BOTTOM
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Task &Properties ...\tCTRL-T", ID_FILE_TASK_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Program &Settings ...\tCTRL-P", ID_POST_SETTINGS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "About YENC-POWER-POST-A&A-v11b... ", ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_CONTEXT MENU DISCARDABLE 
+BEGIN
+    POPUP "VIEW_CONTEXT_MENU"
+    BEGIN
+        MENUITEM "&Add Files To Queue..",       ID_FILE_ADDFILES
+        MENUITEM "&Hold Files",                 ID_FILE_SET_HOLD
+        MENUITEM "&Generate .par2 files",       ID_GENERATE_PAR2_VOL
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Completed Files",       ID_FILE_CLEARDONE
+        MENUITEM "Clear Selected Files",        ID_FILE_CLEARSELECTED
+        MENUITEM "&Clear All Files",            ID_FILE_CLEARLIST
+        MENUITEM SEPARATOR
+        MENUITEM "Re-Queue Files In Error",     ID_FILE_CLEAR_ERRORS
+        MENUITEM "Re-Queue Selected Files",     ID_FILE_QUEUE_SEL
+        MENUITEM "Re-Queue All Files",          ID_FILE_QUEUE_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "&History ...",                ID_FILE_HISTORY
+        MENUITEM SEPARATOR
+        MENUITEM "Task &Properties ...",        ID_FILE_TASK_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Re-Assign Newsgroups...",     ID_FILE_REASSIGN_NEWSGROUPS
+        MENUITEM SEPARATOR
+        MENUITEM "Program &Settings ...",       ID_POST_SETTINGS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "H",            ID_FILE_HISTORY,        VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_REASSIGN_NEWSGROUPS, VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_POST_SETTINGS,       VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_FILE_ADDFILES,       VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_POST_START,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_POST_STOP,           VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_FILE_TASK_PROPERTIES, VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 317, 197
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About YENC-POWER-POST-A&A-v11b"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "POST THE MOST!",IDC_STATIC_VERSION,37,10,228,11,
+                    SS_NOPREFIX | SS_CENTERIMAGE
+    LTEXT           "Original POWER-POST (C) 2000 by Chris Morse - All Rights Reserved",
+                    IDC_STATIC,37,22,221,10,SS_CENTERIMAGE
+    DEFPUSHBUTTON   "OK? OK!",IDOK,265,7,49,25,WS_GROUP,WS_EX_DLGMODALFRAME
+    CTEXT           "",IDC_STATIC_IMAGE,7,40,305,95,SS_CENTERIMAGE | 
+                    SS_SUNKEN,WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    PUSHBUTTON      "http://powerpost.cjb.net/",IDC_BUTTON_GO,162,175,109,15,
+                    0,WS_EX_DLGMODALFRAME
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,11,21,20,0,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Contact Assert",IDC_BUTTON_GO_MAIL,48,175,109,15,0,
+                    WS_EX_DLGMODALFRAME
+    CTEXT           "Special Thanks To The Beta-Testers!",IDC_STATIC,7,139,
+                    303,11,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Demi, DjMoufle, Fahrenheit159, Kan@Bis, Thierry",
+                    IDC_STATIC,25,152,275,10,SS_CENTERIMAGE
+    CTEXT           "And All Posters @ alt.binaries.cartoons.french.d",
+                    IDC_STATIC,25,162,275,10,SS_CENTERIMAGE
+END
+
+IDD_PROPPAGE_SERVER DIALOGEX 0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "News Server"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_SERVER,97,35,114,168,CBS_DROPDOWN | CBS_SORT | 
+                    CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_PORT,97,51,49,14,ES_AUTOHSCROLL
+    CONTROL         "Server Requires Login",IDC_CHECK_LOGIN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,97,88,114,11
+    EDITTEXT        IDC_EDIT_USERNAME,97,104,114,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,97,121,114,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_CONFIRM,97,138,114,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BWCAP,160,170,49,14,ES_AUTOHSCROLL
+    RTEXT           "NNTP News Server:",IDC_STATIC,21,36,70,10
+    RTEXT           "User Name:",IDC_STATIC,21,107,70,10
+    RTEXT           "Password:",IDC_STATIC,21,124,70,10
+    RTEXT           "Confirm:",IDC_STATIC,21,141,70,10
+    RTEXT           "Port:",IDC_STATIC,69,54,22,10
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,172,21,20,0,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    RTEXT           "Max Bandwidth (KB/s):",IDC_STATIC,78,173,76,10
+    RTEXT           "Connections:",IDC_STATIC,23,72,68,8
+    EDITTEXT        IDC_EDIT_CONNECTIONS,97,71,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",IDC_SPIN_CONNECTIONS,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,137,71,11,14
+END
+
+IDD_PROPPAGE_HEADERS DIALOGEX 0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Headers"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_FROM_NICK,78,25,133,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FROM,78,42,133,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_REPLYTO,78,59,133,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ORGANIZATION,78,76,133,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FOLLOWUPTO,78,93,133,14,ES_AUTOHSCROLL
+    CONTROL         "Add ""X-No-Archive: yes"" Header",IDC_CHECK_XNOARCHIVE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,161,133,14
+    CONTROL         "Add ""X-Server-Date:"" Header",IDC_CHECK_XSERVERDATE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,177,133,14
+    RTEXT           "(e-mail)  From:",IDC_STATIC,7,42,67,14,SS_CENTERIMAGE
+    RTEXT           "(e-mail)  Reply-To:",IDC_STATIC,7,59,67,14,
+                    SS_CENTERIMAGE
+    RTEXT           "Organization:",IDC_STATIC,7,77,67,14,SS_CENTERIMAGE
+    CTEXT           "Specify headers to apply to each article posted.",
+                    IDC_STATIC,7,10,218,13,SS_CENTERIMAGE
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,166,28,26,0,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    RTEXT           "Nickname/Handle:",IDC_STATIC,7,25,67,14,SS_CENTERIMAGE
+    RTEXT           "Followup-To:",IDC_STATIC,7,93,67,14,SS_CENTERIMAGE
+    CONTROL         "Makes Multi-part files as threads (EXPERIMENTAL)",
+                    IDC_CHECK_FILETHREAD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,46,127,179,14
+    EDITTEXT        IDC_EDIT_DOMAINID,92,143,133,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    RTEXT           "Unique domain ID:",IDC_STATIC,7,143,81,14,
+                    SS_CENTERIMAGE | WS_DISABLED
+END
+
+IDD_PROPPAGE_GROUPS DIALOGEX 0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Newsgroups"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Add ...",IDC_BUTTON_ADD,178,176,47,16
+    PUSHBUTTON      "&Remove",IDC_BUTTON_REMOVE,126,176,47,16
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,172,20,20,0,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    CONTROL         "List1",IDC_LIST_GROUPS,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_SORTASCENDING | WS_BORDER | 
+                    WS_TABSTOP,7,7,218,163
+END
+
+IDD_DIALOG_ADDGROUP DIALOGEX 0, 0, 251, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Target Newsgroup"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_GROUP,39,21,150,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,194,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,194,24,50,14
+    LTEXT           "Enter Target Newsgroup Name:",IDC_STATIC,39,7,150,12,
+                    SS_CENTERIMAGE
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,9,20,20,0,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_DIALOG_PROGRESS DIALOGEX 0, 0, 370, 249
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Posting progress"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_SERVER,69,7,175,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Progress1",IDC_PROGRESS_BATCH,"msctls_progress32",0x0,
+                    70,23,293,12,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_CUR_ARTICLE,7,55,356,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_GROUPS,188,41,175,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "&Close",IDCANCEL,313,7,50,14
+    RTEXT           "Server:",IDC_STATIC,40,7,25,12,SS_CENTERIMAGE
+    RTEXT           "Thread 1",IDC_STATIC,7,42,35,12,SS_CENTERIMAGE
+    RTEXT           "Time Started:",IDC_STATIC,118,230,58,12,SS_CENTERIMAGE
+    RTEXT           "Elapsed:",IDC_STATIC,229,230,36,12,SS_CENTERIMAGE
+    RTEXT           "Batch:",IDC_STATIC,41,23,24,12,SS_CENTERIMAGE
+    LTEXT           "<< time >>",IDC_STATIC_TIME_STARTED,182,230,51,12,
+                    SS_CENTERIMAGE
+    LTEXT           "00:00:00",IDC_STATIC_TIME_ELAPSED,267,230,34,12,
+                    SS_CENTERIMAGE
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,21,20,0,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+    RTEXT           "To Go:",IDC_STATIC,304,230,25,12,SS_CENTERIMAGE
+    LTEXT           "00:00:00",IDC_STATIC_TIME_TOGO,332,230,31,12,
+                    SS_CENTERIMAGE
+    LTEXT           "",IDC_STATIC_GRAPH,7,174,356,49,SS_SUNKEN,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "Max Bandwidth:",IDC_STATIC,7,234,52,8
+    EDITTEXT        IDC_EDIT_BWCAP,64,228,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Progress1",IDC_PROGRESS_ARTICLE1,"msctls_progress32",
+                    PBS_SMOOTH,46,42,136,6
+    CONTROL         "Progress1",IDC_PROGRESS_FILE1,"msctls_progress32",
+                    PBS_SMOOTH,46,48,136,6
+    EDITTEXT        IDC_EDIT_CUR_ARTICLE2,7,87,356,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_GROUPS2,188,73,175,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Thread 2",IDC_STATIC,7,74,35,12,SS_CENTERIMAGE
+    CONTROL         "Progress1",IDC_PROGRESS_ARTICLE2,"msctls_progress32",
+                    PBS_SMOOTH,46,74,136,6
+    CONTROL         "Progress1",IDC_PROGRESS_FILE2,"msctls_progress32",
+                    PBS_SMOOTH,46,80,136,6
+    EDITTEXT        IDC_EDIT_CUR_ARTICLE3,7,119,356,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_GROUPS3,188,105,175,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Thread 3",IDC_STATIC,7,106,35,12,SS_CENTERIMAGE
+    CONTROL         "Progress1",IDC_PROGRESS_ARTICLE3,"msctls_progress32",
+                    PBS_SMOOTH,46,106,136,6
+    CONTROL         "Progress1",IDC_PROGRESS_FILE3,"msctls_progress32",
+                    PBS_SMOOTH,46,112,136,6
+    EDITTEXT        IDC_EDIT_CUR_ARTICLE4,7,151,356,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_GROUPS4,188,137,175,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Thread 4",IDC_STATIC,7,138,35,12,SS_CENTERIMAGE
+    CONTROL         "Progress1",IDC_PROGRESS_ARTICLE4,"msctls_progress32",
+                    PBS_SMOOTH,46,138,136,6
+    CONTROL         "Progress1",IDC_PROGRESS_FILE4,"msctls_progress32",
+                    PBS_SMOOTH,46,144,136,6
+END
+
+IDD_PROPPAGE_PROGRAM_SETTINGS DIALOGEX 0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Program"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_MAXLINES,154,36,49,14,ES_AUTOHSCROLL
+    CONTROL         "Make &Visible Current File/Item Being Posted?",
+                    IDC_CHECK_HL_LAST,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | 
+                    BS_RIGHT | WS_TABSTOP,28,58,175,13
+    CONTROL         "Auto-Show &Progress Dialog After Pressing Play?",
+                    IDC_CHECK_SHOWPROGRESSONSTART,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,78,175,13
+    CONTROL         "Sort files alphabetically before Queueing?",
+                    IDC_CHECK_SORTFILES,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,98,175,13
+    CONTROL         "Auto-Retry On Errors, Disconnects && Timeouts?",
+                    IDC_CHECK_AUTORETRY,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,118,175,13
+    CONTROL         "Minimize Program To SysTray?",IDC_CHECK_SYSTRAY,"Button",
+                    BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,
+                    138,175,13
+    CONTROL         "Play Sounds?",IDC_CHECK_SOUND,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,27,176,175,13
+    RTEXT           "Default Max Lines Per Part:",IDC_STATIC,34,40,116,10
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,172,20,20,0,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    CONTROL         "Autodetect .PAR2 bloc size",IDC_CHECK_DETECTPAR2,"Button",
+                    BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,
+                    157,175,13
+    RTEXT           "Skin:",IDC_STATIC,35,17,79,10
+    COMBOBOX        IDC_COMBO_SKIN,119,15,84,177,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PROPPAGE_TASK_ITEM_MAIN DIALOG DISCARDABLE  0, 0, 255, 191
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "File && Parts"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TASK_FILENAME,61,11,181,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_TASK_SUBJECT,61,26,181,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TASK_MAX_LINES,61,41,50,13,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    PUSHBUTTON      "&Change ...",IDC_BUTTON_PARTS_MODIFY,114,41,52,13
+    CTEXT           "<< File Size / Part Count >>",IDC_LABEL_FILE_INFO,61,61,
+                    171,10
+    CONTROL         "List1",IDC_LIST_TASK_PARTS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SORTASCENDING | WS_BORDER | 
+                    WS_TABSTOP,61,74,172,92
+    PUSHBUTTON      "Check All",IDC_BUTTON_TASK_PARTS_CHECK_ALL,61,170,60,14
+    PUSHBUTTON      "Un-Check All",IDC_BUTTON_TASK_PARTS_UNCHECK_ALL,125,170,
+                    60,14
+    RTEXT           "Subject Line:",IDC_STATIC,7,26,48,11,SS_CENTERIMAGE
+    RTEXT           "Filename:",IDC_STATIC,7,11,48,11,SS_CENTERIMAGE
+    RTEXT           "Lines/Part:",IDC_STATIC,7,42,48,11,SS_CENTERIMAGE
+    RTEXT           "Parts To Post:",IDC_STATIC,7,77,48,11,SS_CENTERIMAGE
+    CTEXT           "0 Parts",IDC_STATIC_N_CHECKED,7,117,48,11
+    CTEXT           "Checked:",IDC_STATIC,7,102,48,11,SS_CENTERIMAGE
+END
+
+IDD_PROPPAGE_TASK_ITEM_GROUPS DIALOG DISCARDABLE  0, 0, 255, 191
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Newsgroups"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_LIST_TARGET_GROUPS,"SysListView32",
+                    LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,15,24,224,142
+    PUSHBUTTON      "&Add Group ...",IDC_BUTTON_TASK_ADD_GROUP,180,169,59,15
+    CTEXT           "Select Up To 8 Groups",IDC_STATIC,49,7,153,12,
+                    SS_CENTERIMAGE
+END
+
+IDD_PROPPAGE_TASK_ITEM_PREFIX_TEXT DIALOG DISCARDABLE  0, 0, 255, 191
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "(0/n) Prefix Text"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TASK_ITEM_PREFIX_TEXT,7,7,241,159,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "Post (0/n) Prefix Text",IDC_CHECK_TASK_POST_PREFIX_TEXT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,169,106,13
+END
+
+IDD_PROPPAGE_TASK_ITEM_LOG DIALOG DISCARDABLE  0, 0, 255, 191
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Log"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Clear Log",IDC_BUTTON_TASK_ITEM_CLEAR_LOG,97,168,60,14
+    CONTROL         "List1",IDC_LIST_TASK_LOG,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,7,241,156
+END
+
+IDD_DIALOG_MAX_LINES DIALOG DISCARDABLE  0, 0, 178, 53
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Maximum Lines per Article"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_NEW_MAX_LINES,7,31,55,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,121,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,121,24,50,14
+    LTEXT           "Enter Maximum Lines per Article (Range is 500 to 32000)",
+                    IDC_STATIC,7,7,108,19
+END
+
+IDD_DIALOG_POSTMOST_HISTORY DIALOG DISCARDABLE  0, 0, 368, 199
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "POWER-POST 2000 History"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_LIST_HISTORY,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,24,354,152
+    PUSHBUTTON      "&Compact History File",IDC_BUTTON_HIST_COMPACT,7,7,97,
+                    15
+    PUSHBUTTON      "&Delete Selected Files",IDC_BUTTON_HIST_DEL_SEL,135,7,
+                    97,15
+    PUSHBUTTON      "&Queue Selected Files",IDC_BUTTON_HIST_QUEUE_SEL,264,7,
+                    97,15
+    CTEXT           "<< History File Statistics Inserted Here >>",
+                    IDC_LABEL_HISTORY_INFO,32,181,329,11,SS_CENTERIMAGE
+END
+
+IDD_DIALOG_DEL_HIST DIALOG DISCARDABLE  0, 0, 223, 74
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete Items"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,57,53,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,115,53,50,14
+    LTEXT           "Delete (N) Items From History File?",IDC_HIST_DEL_LABEL,
+                    39,17,177,28,SS_CENTERIMAGE
+    ICON            IDI_ICON_QUESTION,IDC_STATIC,9,15,20,20
+END
+
+IDD_DIALOG_AUTO_RETRY DIALOG DISCARDABLE  0, 0, 238, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "YENC-POWER-POST-A&A-v11b"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "RETRY",IDOK,181,7,50,14
+    PUSHBUTTON      "STOP",IDCANCEL,181,24,50,14
+    LTEXT           "Information\r\nText\r\nInserted\r\nHere",
+                    IDC_STATIC_INFO,7,7,166,55
+    CTEXT           "Auto-Retry in (N) Seconds",IDC_STATIC_RETRY_INFO,45,73,
+                    146,15,SS_CENTERIMAGE
+    ICON            IDI_ICON_ERROR,IDC_STATIC,197,62,21,20
+    PUSHBUTTON      "SKIP",IDSKIP,181,42,50,14
+END
+
+IDD_DIALOG_DEL_TASK DIALOG DISCARDABLE  0, 0, 261, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete Task Item(s)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,204,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,204,23,50,14
+    LTEXT           "Delete (N) Task Items?",IDC_STATIC_LABEL,40,7,160,20,
+                    SS_CENTERIMAGE
+    CONTROL         "&Save Items To History",IDC_CHECK_SAVE_TO_HISTORY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,39,127,9
+    ICON            IDI_ICON_QUESTION,IDC_STATIC,7,7,21,20
+END
+
+IDD_PROPPAGE_ADD_SUBJECT DIALOG DISCARDABLE  0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Subject"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Enter Subject Header Template:",IDC_STATIC,7,7,109,9,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_SUBJECT_TEMPLATE,7,20,218,12,ES_AUTOHSCROLL
+    CONTROL         "Insert Files At &Beginning Of Queue",
+                    IDC_CHECK_INSERT_HEAD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,49,131,134,11
+    CONTROL         "Process Sub-&Directories",IDC_CHECK_PROCESS_DIRECTORIES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,145,150,11
+    CONTROL         "Recursively",IDC_CHECK_RECURSIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,159,139,11
+    CONTROL         "Number Files In Folders Seperately",IDC_CHECK_ENUMBYDIR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,63,172,139,11
+    LTEXT           "Example:",IDC_STATIC,7,36,35,9,SS_CENTERIMAGE
+    LTEXT           "<< Example Header >>",IDC_STATIC_EX_OUTPUT,49,35,176,24,
+                    SS_SUNKEN
+    LTEXT           "$B - Inserts File Size (in Bytes)\r\n$K - Inserts File Size (in K)\r\n$$ - Inserts ""$"" sign\r\n$P - Insert Full Path",
+                    IDC_STATIC,125,82,100,39
+    LTEXT           "$1 - Insert File Number\r\n$2 - Insert File Count\r\n$F - Insert Filename\r\n$D - Insert Directory Name",
+                    IDC_STATIC,23,82,95,41
+    CTEXT           "NOTE: $F Is Required",IDC_STATIC,129,7,96,9,
+                    SS_CENTERIMAGE | WS_BORDER
+    RTEXT           "(Example is FILE.ZYX, 1 of 10, 1024K)",
+                    IDC_STATIC_EXAMPLE_INFO,49,61,176,11
+END
+
+IDD_PROPPAGE_ADD_TEXT_PREFIX DIALOG DISCARDABLE  0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Prefix (0/N) Text"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_PREFIX_TEXT,7,7,218,170,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    CONTROL         "Send Prefix Text With",IDC_CHECK_SEND_TEXT_PREFIX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,181,90,11
+    CONTROL         "All Files",IDC_RADIO_PREFIX_ALL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,113,182,43,10
+    CONTROL         "First File Only",IDC_RADIO_PREFIX_FIRST_ONLY,"Button",
+                    BS_AUTORADIOBUTTON,163,182,62,10
+END
+
+IDD_PROPPAGE_ADD_GROUPS DIALOG DISCARDABLE  0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Newsgroups"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_LIST_GROUPS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    WS_BORDER | WS_TABSTOP,7,7,218,167
+    PUSHBUTTON      "&Add Group ...",IDC_BUTTON_ADD_GROUP,166,177,59,15
+END
+
+IDD_DIALOG_POST_AT DIALOG DISCARDABLE  0, 0, 283, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Start Posting At ... And Stop Posting At..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,226,3,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,226,24,50,14
+    ICON            IDI_ICON_STOP_WATCH,IDC_STATIC,2,3,20,20
+    CTEXT           "Select the time to start posting:",IDC_STATIC,36,9,145,
+                    14,SS_CENTERIMAGE
+    CTEXT           "Posting Will Start In (h) Hours, (m) Minutes, (s) Seconds",
+                    IDC_STATIC_TIME,2,73,274,14,SS_CENTERIMAGE
+    COMBOBOX        IDC_COMBO_HOUR,47,25,46,54,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_MIN,123,25,46,54,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_AM_PM,173,25,39,54,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Min:",IDC_STATIC,99,25,19,12,SS_CENTERIMAGE
+    RTEXT           "Hour:",IDC_STATIC,15,25,25,12,SS_CENTERIMAGE
+    LTEXT           "Select the time to stop posting:",IDC_STATIC,61,44,114,
+                    13
+    RTEXT           "Hour:",IDC_STATIC,15,57,25,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_COMBO_HOUR_END,47,57,46,49,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Min:",IDC_STATIC,99,57,19,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_COMBO_MIN_END,123,57,45,48,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_AM_PM_END,174,57,39,36,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Posting Will Stop In (h) Hours, (m) Minutes, (s) Seconds",
+                    IDC_STATIC_TIME_END,2,87,274,12
+    CONTROL         "Check1",IDC_CHECK_STOP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,219,60,9,8
+    LTEXT           "Time to Stop",IDC_STATIC,234,61,42,12
+    CONTROL         "Check1",IDC_CHECK_REPEAT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,219,44,10,9
+    LTEXT           "Auto Repeat",IDC_STATIC,236,44,40,11
+END
+
+IDD_PROPPAGE_ADD_ORDER DIALOG DISCARDABLE  0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "File Order"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Select Order In Which Files Will Be Added",IDC_STATIC,7,
+                    7,218,11,SS_CENTERIMAGE
+    CONTROL         "List1",IDC_LIST_FILE_ORDER,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,20,218,156
+    PUSHBUTTON      "Move &Up",IDC_BUTTON_AFO_UP,7,178,46,14,BS_FLAT
+    PUSHBUTTON      "Move &Down",IDC_BUTTON_AFO_DOWN,57,178,46,14,BS_FLAT
+    PUSHBUTTON      "Sort .&PXX",IDC_BUTTON_AFO_SORTPAR,107,178,45,14,
+                    BS_FLAT
+    PUSHBUTTON      "Remove",IDC_BUTTON_AFO_DELFILE,156,178,38,14,BS_FLAT
+    PUSHBUTTON      "Add",IDC_BUTTON_ADD,198,178,27,14,BS_FLAT
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Written by Chris Morse\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "AUTO-POST 2000 MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "AUTO-POST 2000\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "PostMost.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "AUTO-POST 2000 Application\0"
+            VALUE "ProductVersion", "1, 1, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 190
+    END
+
+    IDD_PROPPAGE_SERVER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        VERTGUIDE, 91
+        VERTGUIDE, 97
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_HEADERS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_GROUPS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_DIALOG_ADDGROUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_DIALOG_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 363
+        VERTGUIDE, 65
+        VERTGUIDE, 70
+        VERTGUIDE, 182
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_PROPPAGE_PROGRAM_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        VERTGUIDE, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_TASK_ITEM_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_PROPPAGE_TASK_ITEM_GROUPS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_PROPPAGE_TASK_ITEM_PREFIX_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_PROPPAGE_TASK_ITEM_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_DIALOG_MAX_LINES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 46
+    END
+
+    IDD_DIALOG_POSTMOST_HISTORY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 361
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_DIALOG_DEL_HIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 216
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDD_DIALOG_AUTO_RETRY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_DIALOG_DEL_TASK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 254
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_PROPPAGE_ADD_SUBJECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_ADD_TEXT_PREFIX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_ADD_GROUPS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_DIALOG_POST_AT, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 276
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_PROPPAGE_ADD_ORDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "PostMost\n\nPostMo\n\n\nPostMost.Document\nPostMo Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "YENC-POWER-POST-A&A-v11b"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_POSTMOST_VERSION_INFO "http://www.CosmicWolf.com"
+    IDS_POSTMOST_VERSION    "YENC-POWER-POST-A&A-v11b [ASSERT & ALAIN]"
+    ID_INDICATOR_FILES      "00000 Files (999.9 MB)"
+    ID_INDICATOR_TASK       "Posting Part (00000/00000)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_POST_START           "Starts the Posting Process\nPost !"
+    ID_POST_STOP            "Stops the Posting Process\nStop"
+    ID_POST_SETTINGS        "Edit Program Settings\nSetup"
+    ID_POST_THREADS         "Displays the progress of the current posting session.\nPost Progress"
+    ID_FILE_REMOVEALL       "Remove All Items From The File List\nClear List"
+    ID_FILE_CLEARLIST       "Remove All Files From List\nClear All Files"
+    ID_FILE_CLEARDONE       "Remove Files From List That Have Been Posted\nClear Done Files"
+    ID_FILE_CLEAR_ERRORS    "Re-Queue's Files Current Marked In Error\nRe-Queue Files With Errors"
+    ID_FILE_QUEUE_ALL       "Place All Files In List Back Into 'Queue' Status\nQueue All"
+    ID_FILE_ADDFILES        "Add Files To Posting Queue\nAdd Files.."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_CLEARSELECTED   "Remove Files From List That Are Selected\nClear Selected Files"
+    ID_FILE_HISTORY         "Posting History With Option To Load Items\nHistory"
+    ID_FILE_TASK_PROPERTIES "Display Task Item Properties\nItem Properties"
+    ID_BTN_HIST_CLEAR       "Remove All Items From History\nDelete All Items"
+    ID_BTN_HIST_CLEAR_SEL   "Remove Selected Items From History\nDelete Selection"
+    ID_BTN_HIST_QUEUE_SEL   "Add Selection To Posting Queue\nQueue Selection"
+    ID_FILE_QUEUE_SEL       "Place All Selected Files Back Into 'Queue' Status\nQueue Selected"
+    ID_FILE_REASSIGN_NEWSGROUPS 
+                            "Re-Assign Target Newsgroups To Selected Items\nRe-Assign Groups"
+    ID_POST_START_AT        "Starts the Posting Process At A Specific Time\nPost At.."
+    ID_MOVE_TASK_UP         "Move Selected Item(s) Up One Position\nShift Up One"
+    ID_MOVE_TASK_DOWN       "Move Selected Item(s) Down One Position\nShift Down One"
+    ID_MOVE_TASK_TOP        "Move Selected Item(s) To Top Of List\nShift To Top"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MOVE_TASK_BOTTOM     "Move Selected Item(s) To Bottom Of List\nShift To Bottom"
+    ID_FILE_SET_HOLD        "Hold Selected Files (Files Are Not Posted)"
+    ID_GENERATE_PAR2_VOL    "Create PAR2 Recovery Volumes\nCreate .vol*.par2"
+    ID_POST_ENCODES         "Displays the progress of the current encoding.\nEncoding Progress"
+    ID_ENCODE_START         "Start Encoding New PAR2 Recovery Volumes\nEncode PAR2!"
+    ID_ENCODE_STOP          "Stop Encoding\nFree my CPU !"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE_ADD_CHECKSUMS DIALOG DISCARDABLE  0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Checksums"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_SFV,7,21,180,12,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Generate .SFV File",IDC_CHECK_SFV,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,150,11
+    CONTROL         "Makes dependent files as thread",IDC_CHECK_GROUPTHREAD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,176,133,14
+    PUSHBUTTON      "Browse",IDC_BUTTON_SFV,194,19,31,14,BS_FLAT | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_PAR,7,57,180,12,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Generate .PAR File",IDC_CHECK_PAR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,43,150,11
+    PUSHBUTTON      "Browse",IDC_BUTTON_PAR,194,55,31,14,BS_FLAT | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_PAR2,7,95,180,12,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Generate .PAR2 File",IDC_CHECK_PAR2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,81,150,11
+    PUSHBUTTON      "Browse",IDC_BUTTON_PAR2,194,93,31,14,BS_FLAT | 
+                    WS_DISABLED
+    LTEXT           "Part size:",IDC_STATIC,7,117,30,8
+    EDITTEXT        IDC_EDIT_PARTSIZE,45,115,42,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Note: this should be a multiple of the number of lines x 128",
+                    IDC_STATIC,90,113,135,19
+    EDITTEXT        IDC_EDIT_NZB,7,151,180,12,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Generate .NZB File",IDC_CHECK_NZB,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,137,150,11
+    PUSHBUTTON      "Browse",IDC_BUTTON_NZB,194,150,31,14,BS_FLAT | 
+                    WS_DISABLED
+END
+
+IDD_PROPPAGE_ADD_RECOVERY DIALOG DISCARDABLE  0, 0, 232, 199
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Recovery"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Make dependant files as thread",IDC_CHECK_GROUPTHREAD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,176,133,14
+    EDITTEXT        IDC_EDIT_PAR2,49,50,176,12,ES_AUTOHSCROLL
+    LTEXT           "Unknown",IDC_TEXT_PAR2_INFO,7,7,218,33
+    LTEXT           "Base name:",IDC_STATIC,7,52,38,10
+    LTEXT           "First Block:",IDC_STATIC,7,74,95,11
+    LTEXT           "Number of Recovery Blocks:",IDC_STATIC,7,94,95,11
+    EDITTEXT        IDC_EDIT_FIRST,102,71,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",IDC_SPIN_FIRST,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,149,71,11,14
+    EDITTEXT        IDC_EDIT_BLOCKS,102,91,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",IDC_SPIN_BLOCKS,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,149,91,11,14
+    LTEXT           "Max Blocks per File",IDC_STATIC,7,116,95,11
+    EDITTEXT        IDC_EDIT_FILES,102,113,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",IDC_SPIN_FILES,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,149,113,11,14
+    CONTROL         "Make all recovery files the same size",
+                    IDC_CHECK_SAMESIZE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    23,160,138,14
+    LTEXT           "Number of Recovery Files:",IDC_STATIC,7,133,95,10
+    RTEXT           "0",IDC_TEXT_NBFILES,102,133,40,10
+    LTEXT           "Recovery Data Size:",IDC_STATIC,7,147,95,10
+    RTEXT           "0",IDC_TEXT_RECVSIZE,102,147,40,10
+END
+
+IDD_DIALOG_ENCODING DIALOGEX 0, 0, 305, 166
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Encoding Progress"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,248,7,50,14
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20,0,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+    RTEXT           "Priority:",IDC_STATIC,38,7,24,13,SS_CENTERIMAGE
+    CONTROL         "Progress1",IDC_PROGRESS_BATCH,"msctls_progress32",
+                    PBS_SMOOTH,70,25,228,6
+    RTEXT           "Batch:",IDC_STATIC,38,24,24,12,SS_CENTERIMAGE
+    CONTROL         "List1",IDC_LIST_ENCODING,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,60,291,82
+    RTEXT           "Status:",IDC_STATIC,38,41,24,13,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_STATUS,70,41,228,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    COMBOBOX        IDC_COMBO_PRIORITY,70,7,153,58,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Progress1",IDC_PROGRESS_BATCH2,"msctls_progress32",
+                    PBS_SMOOTH,70,31,228,6
+    RTEXT           "Speed:",IDC_STATIC,38,146,24,13,SS_CENTERIMAGE
+    RTEXT           "",IDC_TEXT_SPEED,70,146,77,13,SS_CENTERIMAGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PROPPAGE_ADD_CHECKSUMS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+        HORZGUIDE, 33
+    END
+
+    IDD_PROPPAGE_ADD_RECOVERY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        VERTGUIDE, 102
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+        HORZGUIDE, 62
+    END
+
+    IDD_DIALOG_ENCODING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 298
+        VERTGUIDE, 62
+        VERTGUIDE, 70
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\PostMost.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
