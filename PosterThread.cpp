@@ -731,7 +731,8 @@ void CPosterThread::OnMessage_POST_in(WPARAM wParam, CTaskObject* pTaskObject)
 
 		for (int count=0;count<chars_in_part;) {
 			if(m_STOP) break;
-			for (int l=0;l<YENCLEN&&count<chars_in_part;l++) {
+			int l = 0;
+			for (l=0;l<YENCLEN&&count<chars_in_part;l++) {
 				if (cur_ibuf==LINBUF) {
 					cur_ibuf=0;
 					theFile.Read(ibuf,LINBUF);

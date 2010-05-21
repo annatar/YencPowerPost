@@ -106,10 +106,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-void CMainFrame::OnSendToTray( WPARAM wParam, LPARAM lParam )
+LRESULT CMainFrame::OnSendToTray( WPARAM wParam, LPARAM lParam )
 {
 	ShowWindow(SW_MINIMIZE);
 	ShowWindow(SW_HIDE);
+	return 0;
 }
 
 LRESULT CMainFrame::OnIconNotification( WPARAM wParam, LPARAM lParam)

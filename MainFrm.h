@@ -75,7 +75,7 @@ protected:
 	//}}AFX_MSG
 	afx_msg void OnSysCommand( UINT, LONG );
 	afx_msg LRESULT OnIconNotification( WPARAM, LPARAM );
-	afx_msg void OnSendToTray( WPARAM, LPARAM );
+	afx_msg LRESULT OnSendToTray( WPARAM, LPARAM );
 	DECLARE_MESSAGE_MAP()
 };
 
