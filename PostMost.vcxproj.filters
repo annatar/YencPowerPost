@@ -312,5 +312,7 @@
     <None Include="res\ListIcons.bmp">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="changelog_en_US.txt" />
+    <None Include="readme.txt" />
   </ItemGroup>
 </Project>

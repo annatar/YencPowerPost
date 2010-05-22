@@ -1862,18 +1862,30 @@ void CPostMostView::OnUpdateIndicatorFiles(CCmdUI* pCmdUI)
 	if(ullTotalSizeK < 1024)
 	{
 		if(nFileCount == nCount)
-			sprintf(szTT, "%d Files (%d K)", nCount, ullTotalSizeK);
+			sprintf(szTT, "%d Files (%I64u K)", nCount, ullTotalSizeK);
 		else
-			sprintf(szTT, "= %d Files (%d K)", nFileCount, ullTotalSizeK);
+			sprintf(szTT, "= %d Files (%I64u K)", nFileCount, ullTotalSizeK);
 	}
 	else
 	{
 		ULONGLONG ullFileSizeMB = (ULONGLONG) ullTotalSizeK;
 		ullFileSizeMB = ullFileSizeMB / 1024.0;
-		if(nFileCount == nCount)
-			sprintf(szTT, "%d Files (%0.1lf MB)", nCount, ullFileSizeMB);
+		if (ullFileSizeMB < 51200)
+		{
+			if(nFileCount == nCount)
+				sprintf(szTT, "%d Files (%0.1I64u MB)", nCount, ullFileSizeMB);
+			else
+				sprintf(szTT, "= %d Files (%0.1I64u MB)", nFileCount, ullFileSizeMB);
+		}
 		else
-			sprintf(szTT, "= %d Files (%0.1lf MB)", nFileCount, ullFileSizeMB);
+		{
+			ULONGLONG ullFileSizeGB = (ULONGLONG) ullFileSizeMB;
+			ullFileSizeGB = ullFileSizeGB / 1024.0;
+			if(nFileCount == nCount)
+				sprintf(szTT, "%d Files (%0.1I64u GB)", nCount, ullFileSizeGB);
+			else
+				sprintf(szTT, "= %d Files (%0.1I64u GB)", nFileCount, ullFileSizeGB);
+		}
 	}
 	
 	pCmdUI->Enable(TRUE);
