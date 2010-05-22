@@ -57,7 +57,7 @@ void CThreadMarshal::ReleaseLock()
 	m_CriticalSection.Unlock();
 }
 
-void CThreadMarshal::SetBatchSize(UINT nSizeBatch)
+void CThreadMarshal::SetBatchSize(ULONGLONG nSizeBatch)
 {
 	m_nBatchSize = nSizeBatch;
 	//m_nBatchPos = 0;

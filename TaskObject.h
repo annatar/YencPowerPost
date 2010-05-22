@@ -30,7 +30,7 @@ public:
 	BOOL  m_bHistoryDeleted;			// Flag (TRUE/FALSE): Deleted in history?
 	TCHAR m_szHistoryDateTime[20];		// History Date/Time
 
-	DWORD m_dwFileSize;					// Size Of File
+	ULONGLONG m_ullFileSize;			// Size Of File
 	TCHAR m_szFilename[_MAX_PATH];		// Name Of File To Post
 	TCHAR m_szSubject[_MAX_PATH];		// Subject Line (minus the " (k/n)" suffix
 
@@ -41,7 +41,7 @@ public:
 	int m_nPartSize;					// Bytes Per Post
 
 	bool postPrefixText() { return m_strTextPrefix.GetLength()>0; }
-	int getNbParts() { return (m_dwFileSize+m_nPartSize-1)/m_nPartSize; }
+	int getNbParts() { return (m_ullFileSize+m_nPartSize-1)/m_nPartSize; }
 	int getTotalParts() { int n = getNbParts(); if (postPrefixText()) ++n; return n; }
 	int getMaxLines() { return (m_nPartSize+YENCLEN-1)/YENCLEN; }
 

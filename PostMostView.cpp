@@ -827,7 +827,7 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 						mid=mid.Mid(1,mid.GetLength()-2);
 						mid = XMLize(mid);
 						fprintf(fout,"      <segment bytes=\"%d\" number=\"%d\">%s</segment>\n",
-							(p==nbp-1?currentObj->m_dwFileSize-p*currentObj->m_nPartSize:currentObj->m_nPartSize),
+							(p==nbp-1?currentObj->m_ullFileSize-p*currentObj->m_nPartSize:currentObj->m_nPartSize),
 							p+1,(const char*)mid);
 					}
 					fprintf(fout,"    </segments>\n");
@@ -866,7 +866,7 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 					// Get base filename of current file
 					_BreakFilename(currentObj->m_szFilename, sz_theDirectory, sz_theFile);
 
-					::CM_BuildSubjectFromTemplate((LPCSTR)strSubjectPrefixTemplate, sz_theDirectory, sz_theFile, currentObj->m_dwFileSize, kk+1, nVolFiles+kAdded, currentObj->m_szSubject);
+					::CM_BuildSubjectFromTemplate((LPCSTR)strSubjectPrefixTemplate, sz_theDirectory, sz_theFile, currentObj->m_ullFileSize, kk+1, nVolFiles+kAdded, currentObj->m_szSubject);
 
 					UpdateDisplay(nInsertPoint+kk,currentObj,NULL);
 				}
@@ -884,7 +884,7 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 	return((LRESULT) 0);
 }
 
-CTaskObject* CPostMostView::InsertFileIntoQueue(LPCTSTR szFilename, LPCTSTR szSubjectPrefixTemplate, int nInsertAt, int nCountValue, int nTotalCount, LPCTSTR szTextPrefix, LPCTSTR szGroupList, int state, int filesize, int partsize)
+CTaskObject* CPostMostView::InsertFileIntoQueue(LPCTSTR szFilename, LPCTSTR szSubjectPrefixTemplate, int nInsertAt, int nCountValue, int nTotalCount, LPCTSTR szTextPrefix, LPCTSTR szGroupList, int state, ULONGLONG filesize, int partsize)
 {
 	char szFileSubject[1024];
 
@@ -901,7 +901,7 @@ CTaskObject* CPostMostView::InsertFileIntoQueue(LPCTSTR szFilename, LPCTSTR szSu
 		filesize = rFileStatus.m_size;
 	}
 
-	TRACE2("Adding '%s' -- Size = %u\n", szFilename, filesize);
+	TRACE2("Adding '%s' -- Size = %I64u\n", szFilename, filesize);
 
 	::CM_BuildSubjectFromTemplate(szSubjectPrefixTemplate, sz_theDirectory, sz_theFile, filesize, nCountValue, nTotalCount, szFileSubject);
 
@@ -927,7 +927,7 @@ CTaskObject* CPostMostView::InsertFileIntoQueue(LPCTSTR szFilename, LPCTSTR szSu
 
 	pTaskObject->m_nPartSize = m_Settings.m_nMaxLines*YENCLEN;
 
-	pTaskObject->m_dwFileSize = filesize;
+	pTaskObject->m_ullFileSize = filesize;
 	char* filetype = "";
 	CString message;
 	if (state == CTaskObject::PM_QUEUED && partsize==0 && m_Settings.m_bDetectPAR2)
@@ -1833,7 +1833,7 @@ void CPostMostView::OnUpdateIndicatorFiles(CCmdUI* pCmdUI)
 	int nCount = listNbTasks();
 
 	CTaskObject* pTaskObject;
-	DWORD dwTotalSizeBytes = 0;
+	ULONGLONG ullTotalSizeBytes = 0;
 
 	if(GetListCtrl().GetSelectedCount() > 0)
 	{
@@ -1842,7 +1842,7 @@ void CPostMostView::OnUpdateIndicatorFiles(CCmdUI* pCmdUI)
 			if(GetListCtrl().GetItemState(kk, LVIS_SELECTED) == LVIS_SELECTED)
 			{
 				pTaskObject = (CTaskObject*) GetListCtrl().GetItemData(kk);
-				dwTotalSizeBytes += pTaskObject->m_dwFileSize;
+				ullTotalSizeBytes += pTaskObject->m_ullFileSize;
 				++nFileCount;
 			}
 		}
@@ -1852,28 +1852,28 @@ void CPostMostView::OnUpdateIndicatorFiles(CCmdUI* pCmdUI)
 		for(int kk = 0; kk < nCount; kk++)
 		{
 			pTaskObject = (CTaskObject*) GetListCtrl().GetItemData(kk);
-			dwTotalSizeBytes += pTaskObject->m_dwFileSize;
+			ullTotalSizeBytes += pTaskObject->m_ullFileSize;
 			++nFileCount;
 		}
 	}
 
-	DWORD dwTotalSizeK = dwTotalSizeBytes >> 10;
+	ULONGLONG ullTotalSizeK = ullTotalSizeBytes >> 10;
 
-	if(dwTotalSizeK < 1024)
+	if(ullTotalSizeK < 1024)
 	{
 		if(nFileCount == nCount)
-			sprintf(szTT, "%d Files (%d K)", nCount, dwTotalSizeK);
+			sprintf(szTT, "%d Files (%d K)", nCount, ullTotalSizeK);
 		else
-			sprintf(szTT, "= %d Files (%d K)", nFileCount, dwTotalSizeK);
+			sprintf(szTT, "= %d Files (%d K)", nFileCount, ullTotalSizeK);
 	}
 	else
 	{
-		double dblFileSizeMB = (double) dwTotalSizeK;
-		dblFileSizeMB = dblFileSizeMB / 1024.0;
+		ULONGLONG ullFileSizeMB = (ULONGLONG) ullTotalSizeK;
+		ullFileSizeMB = ullFileSizeMB / 1024.0;
 		if(nFileCount == nCount)
-			sprintf(szTT, "%d Files (%0.1lf MB)", nCount, dblFileSizeMB);
+			sprintf(szTT, "%d Files (%0.1lf MB)", nCount, ullFileSizeMB);
 		else
-			sprintf(szTT, "= %d Files (%0.1lf MB)", nFileCount, dblFileSizeMB);
+			sprintf(szTT, "= %d Files (%0.1lf MB)", nFileCount, ullFileSizeMB);
 	}
 	
 	pCmdUI->Enable(TRUE);
@@ -2379,7 +2379,7 @@ BOOL CPostMostView::__FilesInQueue_Q()
 }
 
 // int __ComputeBatchSize()
-UINT CPostMostView::__ComputeBatchSize()
+ULONGLONG CPostMostView::__ComputeBatchSize()
 {
 	// Compute batch size in lines
 	CTaskObject* pTaskObject;
@@ -2387,7 +2387,7 @@ UINT CPostMostView::__ComputeBatchSize()
 	int kk;
 	int nItems = listNbTasks();
 
-	UINT nSizeBatch = 0;
+	ULONGLONG nSizeBatch = 0;
 	
 	int n, nParts, nPTPSize, nLines;
 
@@ -2413,7 +2413,7 @@ UINT CPostMostView::__ComputeBatchSize()
 					}
 					else
 					{
-						nLines = ((pTaskObject->m_dwFileSize % pTaskObject->m_nPartSize) / YENCLEN);
+						nLines = ((pTaskObject->m_ullFileSize % pTaskObject->m_nPartSize) / YENCLEN);
 						nSizeBatch += nLines;
 					}
 				}
@@ -2421,7 +2421,7 @@ UINT CPostMostView::__ComputeBatchSize()
 		}
 	}
 
-	TRACE("__ComputeBatchSize() = %d lines\n", nSizeBatch);
+	TRACE("__ComputeBatchSize() = %I64u lines\n", nSizeBatch);
 	return(nSizeBatch);
 }
 

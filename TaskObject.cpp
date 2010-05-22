@@ -31,7 +31,7 @@ void CTaskObject::Reset()
 	m_nState = PM_UNDEFINED;
 	m_bHistoryDeleted = FALSE;
 	::ZeroMemory(m_szHistoryDateTime, 20);
-	m_dwFileSize = 0;
+	m_ullFileSize = 0;
 	::ZeroMemory(m_szFilename, _MAX_PATH);
 	::ZeroMemory(m_szSubject, _MAX_PATH);
 	m_bPostPrefixText = TRUE;
@@ -246,7 +246,7 @@ BOOL CTaskObject::ReadFromFile(CFile& theFile)
 	if(theFile.Read(&m_bHistoryDeleted, sizeof(BOOL)) != sizeof(BOOL)) return FALSE;
 	if(theFile.Read(m_szHistoryDateTime, 20) != 20) return FALSE;
 	if(theFile.Read(&m_nState, sizeof(int)) != sizeof(int)) return FALSE;
-	if(theFile.Read(&m_dwFileSize, sizeof(DWORD)) != sizeof(DWORD)) return FALSE;
+	if(theFile.Read(&m_ullFileSize, sizeof(ULONGLONG)) != sizeof(ULONGLONG)) return FALSE;
 	if(theFile.Read(m_szFilename, _MAX_PATH) != _MAX_PATH) return FALSE;
 	if(theFile.Read(m_szSubject, _MAX_PATH) != _MAX_PATH) return FALSE;
 	int maxlines;
@@ -277,7 +277,7 @@ BOOL CTaskObject::WriteToFile(CFile& theFile, BOOL bSetTime)
 		theFile.Write(&bValue, sizeof(BOOL));		// Write m_bHistoryDeleted flag as FALSE
 		theFile.Write(m_szHistoryDateTime, 20);
 		theFile.Write(&m_nState, sizeof(int));
-		theFile.Write(&m_dwFileSize, sizeof(DWORD));
+		theFile.Write(&m_ullFileSize, sizeof(ULONGLONG));
 		theFile.Write(m_szFilename, _MAX_PATH);
 		theFile.Write(m_szSubject, _MAX_PATH);
 		int maxlines;
@@ -306,7 +306,7 @@ void CTaskObject::Copy(CTaskObject* pSource)
 
 	m_nState = pSource->m_nState;
 
-	m_dwFileSize = pSource->m_dwFileSize;
+	m_ullFileSize = pSource->m_ullFileSize;
 
 	::CopyMemory(m_szFilename , pSource->m_szFilename, _MAX_PATH);
 	::CopyMemory(m_szSubject , pSource->m_szSubject, _MAX_PATH);

@@ -71,7 +71,7 @@ public:
 public:
 	void _BreakFilename(LPCTSTR FullFilename, CString& Path, CString& File);
 	void _BreakFilename(LPCTSTR FullFilename, char* szDir, char* szFile);
-	CTaskObject* InsertFileIntoQueue(LPCTSTR m_Filename, LPCTSTR szSubjectPrefix, int nInsertAt, int nCountValue, int nTotalCount, LPCTSTR szTextPrefix, LPCTSTR szGroupList, int state=CTaskObject::PM_QUEUED, int filesize=0, int partsize=0);
+	CTaskObject* InsertFileIntoQueue(LPCTSTR m_Filename, LPCTSTR szSubjectPrefix, int nInsertAt, int nCountValue, int nTotalCount, LPCTSTR szTextPrefix, LPCTSTR szGroupList, int state=CTaskObject::PM_QUEUED, ULONGLONG filesize=0, int partsize=0);
 	void GetDirectoryFiles(CStringArray& FileList, LPCTSTR szDirectory, BOOL bRecursive);
 	// int GetBatchProgress();
 
@@ -105,7 +105,7 @@ public:
 	BOOL __FilesInQueue_Q();
 	BOOL __FilesInQueue_ERR();
 	BOOL __FilesInQueue_OK();
-	UINT __ComputeBatchSize();
+	ULONGLONG __ComputeBatchSize();
 	BOOL __FilesSelected_Posting();
 
 // Overrides

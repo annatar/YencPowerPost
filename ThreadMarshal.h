@@ -31,7 +31,7 @@ public:
 
 	void Assign_Task(int iThread, CTaskObject* pTaskObject);
 	
-	void SetBatchSize(UINT nSizeBatch);
+	void SetBatchSize(ULONGLONG nSizeBatch);
 	void SetTemporaryPos(UINT iThread, UINT nSize);
 	void FlushTemporaryPos(UINT iThread, UINT nSize);
 

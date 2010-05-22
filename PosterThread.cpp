@@ -397,7 +397,7 @@ void CPosterThread::OnMessage_POST_in(WPARAM wParam, CTaskObject* pTaskObject)
 
 	nParts = pTaskObject->getNbParts();
 
-	if (pTaskObject->m_dwFileSize!=nFileSizeBytes)
+	if (pTaskObject->m_ullFileSize!=nFileSizeBytes)
 	{
 	  SetTask_Result(FALSE,"File size changed",pTaskObject);
 	  sprintf(szLOG, " --> Article '%s' Not Posted!", pTaskObject->m_szSubject);
@@ -724,8 +724,8 @@ void CPosterThread::OnMessage_POST_in(WPARAM wParam, CTaskObject* pTaskObject)
  		            curPart,YENCLEN,size,szBaseFilename,pos,pos+chars_in_part-1);
 		NNTP_SendLine((LPTSTR)((LPCTSTR)str));
 
-		if(nFileSeekPos + pTaskObject->m_nPartSize > (int) pTaskObject->m_dwFileSize)
-			nMaxLinesThisPart = ((pTaskObject->m_dwFileSize - nFileSeekPos) / YENCLEN) + 1;
+		if(nFileSeekPos + pTaskObject->m_nPartSize > (int) pTaskObject->m_ullFileSize)
+			nMaxLinesThisPart = ((pTaskObject->m_ullFileSize - nFileSeekPos) / YENCLEN) + 1;
 
 		unsigned int crc32=CRC.crc_begin();
 
@@ -768,7 +768,7 @@ void CPosterThread::OnMessage_POST_in(WPARAM wParam, CTaskObject* pTaskObject)
 				d_DON = (double) nLinesSentThisPart;
 				d_POS = (d_DON / d_TOT) * (double) 100.0;
 				nProgressPart = (int) d_POS;
-				d_TOT = (double) pTaskObject->m_dwFileSize;
+				d_TOT = (double) pTaskObject->m_ullFileSize;
 				d_DON = (double) theFile.GetPosition();
 				d_POS = (d_DON / d_TOT) * (double) 100.0;
 				nProgressTotal = (int) d_POS;

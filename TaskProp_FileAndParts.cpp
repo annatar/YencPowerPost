@@ -128,7 +128,7 @@ void CTaskProp_FileAndParts::Refresh_Parts_List(CListCtrl* pListCtrl)
 
 	int nPartsRequired = m_pTaskObject->getNbParts();
 
-	sprintf(szText, "%d Parts (File Size: %d Bytes)", nPartsRequired, m_pTaskObject->m_dwFileSize);
+	sprintf(szText, "%d Parts (File Size: %I64u Bytes)", nPartsRequired, m_pTaskObject->m_ullFileSize);
 	SetDlgItemText(IDC_LABEL_FILE_INFO, szText);
 
 	TCHAR szItemText[64];
