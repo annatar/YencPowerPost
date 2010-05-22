@@ -309,5 +309,8 @@
     <None Include="assert_readme.txt" />
     <None Include="original_source_readme.txt" />
     <None Include="yenc_source_readme.txt" />
+    <None Include="res\ListIcons.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

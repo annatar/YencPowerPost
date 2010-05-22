@@ -13,7 +13,7 @@
 #endif
 
 //#ifndef TITLE
-#define TITLE "YENC-POWER-POST-A&A-v11b"
+#define TITLE "YENC-POWER-POST-A&A-v11c"
 //#endif
 
 #include "resource.h"       // main symbols
