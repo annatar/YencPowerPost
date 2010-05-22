@@ -81,7 +81,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AFX_RESOURCE_DLL</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
@@ -127,7 +127,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AFX_RESOURCE_DLL</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
@@ -301,12 +301,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="PostMost.rc">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="AddGroupDlg.h" />
     <ClInclude Include="AutoRetryDlg.h" />
     <ClInclude Include="BitmapLabel.h" />
@@ -336,7 +330,7 @@
     <ClInclude Include="PropPage_Headers.h" />
     <ClInclude Include="PropPage_ProgramSettings.h" />
     <ClInclude Include="PropPage_Server.h" />
-    <ClInclude Include="Resource.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SetMaxLinesDlg.h" />
     <ClInclude Include="SplashWindow.h" />
     <ClInclude Include="StdAfx.h" />
@@ -372,7 +366,15 @@
     <None Include="changelog_en_US.txt" />
     <None Include="yenc_source_readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PostMost.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="PostMost.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

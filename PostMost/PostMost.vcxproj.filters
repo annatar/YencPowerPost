@@ -131,11 +131,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="PostMost.rc">
-      <Filter>Source Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="AddGroupDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -223,9 +218,6 @@
     <ClInclude Include="PropPage_Server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SetMaxLinesDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -251,6 +243,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreadMarshal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -285,9 +280,6 @@
     <None Include="res\PostMost.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="res\PostMost.rc2">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="res\PostMostDoc.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -314,5 +306,13 @@
     </None>
     <None Include="changelog_en_US.txt" />
     <None Include="readme.txt" />
+    <None Include="res\PostMost.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PostMost.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

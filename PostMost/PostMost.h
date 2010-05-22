@@ -35,6 +35,7 @@ public:
 	//{{AFX_VIRTUAL(CPostMostApp)
 	public:
 	virtual BOOL InitInstance();
+	virtual BOOL ExitInstance();
 	//}}AFX_VIRTUAL
 
 // Implementation
@@ -42,6 +43,7 @@ public:
 	CSplashWindow* m_pSplashWindow;
 	CImageList      m_ImageList;
 	CPostMostView*  m_pView;
+	HINSTANCE m_hInstResDLL;
 
 	int m_nAboutBoxSoundNumber;
 

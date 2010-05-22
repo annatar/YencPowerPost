@@ -13,6 +13,177 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Japanese (Japan) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    ID_MOVE_TASK_BOTTOM     "Move Selected Item(s) To Bottom Of List\nShift To Bottom"
+    ID_FILE_SET_HOLD        "Hold Selected Files (Files Are Not Posted)"
+    ID_GENERATE_PAR2_VOL    "Create PAR2 Recovery Volumes\nCreate .vol*.par2"
+    ID_POST_ENCODES         "Displays the progress of the current encoding.\nEncoding Progress"
+    ID_ENCODE_START         "Start Encoding New PAR2 Recovery Volumes\nEncode PAR2!"
+    ID_ENCODE_STOP          "Stop Encoding\nFree my CPU !"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_CLEARSELECTED   "Remove Files From List That Are Selected\nClear Selected Files"
+    ID_FILE_HISTORY         "Posting History With Option To Load Items\nHistory"
+    ID_FILE_TASK_PROPERTIES "Display Task Item Properties\nItem Properties"
+    ID_BTN_HIST_CLEAR       "Remove All Items From History\nDelete All Items"
+    ID_BTN_HIST_CLEAR_SEL   "Remove Selected Items From History\nDelete Selection"
+    ID_BTN_HIST_QUEUE_SEL   "Add Selection To Posting Queue\nQueue Selection"
+    ID_FILE_QUEUE_SEL       "Place All Selected Files Back Into 'Queue' Status\nQueue Selected"
+    ID_FILE_REASSIGN_NEWSGROUPS 
+                            "Re-Assign Target Newsgroups To Selected Items\nRe-Assign Groups"
+    ID_POST_START_AT        "Starts the Posting Process At A Specific Time\nPost At.."
+    ID_MOVE_TASK_UP         "Move Selected Item(s) Up One Position\nShift Up One"
+    ID_MOVE_TASK_DOWN       "Move Selected Item(s) Down One Position\nShift Down One"
+    ID_MOVE_TASK_TOP        "Move Selected Item(s) To Top Of List\nShift To Top"
+END
+
+STRINGTABLE
+BEGIN
+    ID_POST_START           "Starts the Posting Process\nPost !"
+    ID_POST_STOP            "Stops the Posting Process\nStop"
+    ID_POST_SETTINGS        "Edit Program Settings\nSetup"
+    ID_POST_THREADS         "Displays the progress of the current posting session.\nPost Progress"
+    ID_FILE_REMOVEALL       "Remove All Items From The File List\nClear List"
+    ID_FILE_CLEARLIST       "Remove All Files From List\nClear All Files"
+    ID_FILE_CLEARDONE       "Remove Files From List That Have Been Posted\nClear Done Files"
+    ID_FILE_CLEAR_ERRORS    "Re-Queue's Files Current Marked In Error\nRe-Queue Files With Errors"
+    ID_FILE_QUEUE_ALL       "Place All Files In List Back Into 'Queue' Status\nQueue All"
+    ID_FILE_ADDFILES        "Add Files To Posting Queue\nAdd Files.."
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_POSTMOST_VERSION_INFO "http://www.CosmicWolf.com"
+    IDS_POSTMOST_VERSION    "YENC-POWER-POST-A&A-v11c [ASSERT & ALAIN]"
+    ID_INDICATOR_FILES      "00000 Files (999.9 MB)"
+    ID_INDICATOR_TASK       "Posting Part (00000/00000)"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "YENC-POWER-POST-A&A-v11cÅ@ì˙ñ{åÍ"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "PostMost\n\nPostMo\n\n\nPostMost.Document\nPostMo Document"
+END
+
+STRINGTABLE
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+#endif    // Japanese (Japan) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
@@ -768,7 +939,7 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 317, 197
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About YENC-POWER-POST-A&A-v11c"
+CAPTION "About YENC-POWER-POST-A&A-v11c nihongo"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "POST THE MOST!",IDC_STATIC_VERSION,37,10,228,11,SS_NOPREFIX | SS_CENTERIMAGE
@@ -799,167 +970,6 @@ BEGIN
     "S",            ID_POST_STOP,           VIRTKEY, CONTROL, NOINVERT
     "T",            ID_FILE_TASK_PROPERTIES, VIRTKEY, CONTROL, NOINVERT
     "X",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// String Table
-//
-
-STRINGTABLE
-BEGIN
-    ID_MOVE_TASK_BOTTOM     "Move Selected Item(s) To Bottom Of List\nShift To Bottom"
-    ID_FILE_SET_HOLD        "Hold Selected Files (Files Are Not Posted)"
-    ID_GENERATE_PAR2_VOL    "Create PAR2 Recovery Volumes\nCreate .vol*.par2"
-    ID_POST_ENCODES         "Displays the progress of the current encoding.\nEncoding Progress"
-    ID_ENCODE_START         "Start Encoding New PAR2 Recovery Volumes\nEncode PAR2!"
-    ID_ENCODE_STOP          "Stop Encoding\nFree my CPU !"
-END
-
-STRINGTABLE
-BEGIN
-    ID_FILE_CLEARSELECTED   "Remove Files From List That Are Selected\nClear Selected Files"
-    ID_FILE_HISTORY         "Posting History With Option To Load Items\nHistory"
-    ID_FILE_TASK_PROPERTIES "Display Task Item Properties\nItem Properties"
-    ID_BTN_HIST_CLEAR       "Remove All Items From History\nDelete All Items"
-    ID_BTN_HIST_CLEAR_SEL   "Remove Selected Items From History\nDelete Selection"
-    ID_BTN_HIST_QUEUE_SEL   "Add Selection To Posting Queue\nQueue Selection"
-    ID_FILE_QUEUE_SEL       "Place All Selected Files Back Into 'Queue' Status\nQueue Selected"
-    ID_FILE_REASSIGN_NEWSGROUPS 
-                            "Re-Assign Target Newsgroups To Selected Items\nRe-Assign Groups"
-    ID_POST_START_AT        "Starts the Posting Process At A Specific Time\nPost At.."
-    ID_MOVE_TASK_UP         "Move Selected Item(s) Up One Position\nShift Up One"
-    ID_MOVE_TASK_DOWN       "Move Selected Item(s) Down One Position\nShift Down One"
-    ID_MOVE_TASK_TOP        "Move Selected Item(s) To Top Of List\nShift To Top"
-END
-
-STRINGTABLE
-BEGIN
-    ID_POST_START           "Starts the Posting Process\nPost !"
-    ID_POST_STOP            "Stops the Posting Process\nStop"
-    ID_POST_SETTINGS        "Edit Program Settings\nSetup"
-    ID_POST_THREADS         "Displays the progress of the current posting session.\nPost Progress"
-    ID_FILE_REMOVEALL       "Remove All Items From The File List\nClear List"
-    ID_FILE_CLEARLIST       "Remove All Files From List\nClear All Files"
-    ID_FILE_CLEARDONE       "Remove Files From List That Have Been Posted\nClear Done Files"
-    ID_FILE_CLEAR_ERRORS    "Re-Queue's Files Current Marked In Error\nRe-Queue Files With Errors"
-    ID_FILE_QUEUE_ALL       "Place All Files In List Back Into 'Queue' Status\nQueue All"
-    ID_FILE_ADDFILES        "Add Files To Posting Queue\nAdd Files.."
-END
-
-STRINGTABLE
-BEGIN
-    AFX_IDS_SCRESTORE       "Restore the window to normal size"
-    AFX_IDS_SCTASKLIST      "Activate Task List"
-    IDS_POSTMOST_VERSION_INFO "http://www.CosmicWolf.com"
-    IDS_POSTMOST_VERSION    "YENC-POWER-POST-A&A-v11c [ASSERT & ALAIN]"
-    ID_INDICATOR_FILES      "00000 Files (999.9 MB)"
-    ID_INDICATOR_TASK       "Posting Part (00000/00000)"
-END
-
-STRINGTABLE
-BEGIN
-    AFX_IDS_SCSIZE          "Change the window size"
-    AFX_IDS_SCMOVE          "Change the window position"
-    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
-    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
-    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
-    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
-    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
-END
-
-STRINGTABLE
-BEGIN
-    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
-    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
-END
-
-STRINGTABLE
-BEGIN
-    ID_EDIT_CLEAR           "Erase the selection\nErase"
-    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
-    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
-    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
-    ID_EDIT_FIND            "Find the specified text\nFind"
-    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
-    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
-    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
-    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
-    ID_EDIT_UNDO            "Undo the last action\nUndo"
-    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
-END
-
-STRINGTABLE
-BEGIN
-    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
-END
-
-STRINGTABLE
-BEGIN
-    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
-    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
-END
-
-STRINGTABLE
-BEGIN
-    ID_FILE_MRU_FILE1       "Open this document"
-    ID_FILE_MRU_FILE2       "Open this document"
-    ID_FILE_MRU_FILE3       "Open this document"
-    ID_FILE_MRU_FILE4       "Open this document"
-    ID_FILE_MRU_FILE5       "Open this document"
-    ID_FILE_MRU_FILE6       "Open this document"
-    ID_FILE_MRU_FILE7       "Open this document"
-    ID_FILE_MRU_FILE8       "Open this document"
-    ID_FILE_MRU_FILE9       "Open this document"
-    ID_FILE_MRU_FILE10      "Open this document"
-    ID_FILE_MRU_FILE11      "Open this document"
-    ID_FILE_MRU_FILE12      "Open this document"
-    ID_FILE_MRU_FILE13      "Open this document"
-    ID_FILE_MRU_FILE14      "Open this document"
-    ID_FILE_MRU_FILE15      "Open this document"
-    ID_FILE_MRU_FILE16      "Open this document"
-END
-
-STRINGTABLE
-BEGIN
-    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
-    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
-END
-
-STRINGTABLE
-BEGIN
-    ID_FILE_NEW             "Create a new document\nNew"
-    ID_FILE_OPEN            "Open an existing document\nOpen"
-    ID_FILE_CLOSE           "Close the active document\nClose"
-    ID_FILE_SAVE            "Save the active document\nSave"
-    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
-END
-
-STRINGTABLE
-BEGIN
-    ID_INDICATOR_EXT        "EXT"
-    ID_INDICATOR_CAPS       "CAP"
-    ID_INDICATOR_NUM        "NUM"
-    ID_INDICATOR_SCRL       "SCRL"
-    ID_INDICATOR_OVR        "OVR"
-    ID_INDICATOR_REC        "REC"
-END
-
-STRINGTABLE
-BEGIN
-    AFX_IDS_APP_TITLE       "YENC-POWER-POST-A&A-v11c"
-    AFX_IDS_IDLEMESSAGE     "Ready"
-END
-
-STRINGTABLE
-BEGIN
-    IDR_MAINFRAME           "PostMost\n\nPostMo\n\n\nPostMost.Document\nPostMo Document"
-END
-
-STRINGTABLE
-BEGIN
-    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
 END
 
 #endif    // English (United States) resources
