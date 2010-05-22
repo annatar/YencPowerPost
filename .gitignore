@@ -1,4 +1,12 @@
+
 Debug/
+Release/
+ipch/
 PostMost.ncb
 PostMost.suo
 PostMost.vcproj.*
+*.aps
+*.sdf
+*.opensdf
+UpgradeLog.XML
+_UpgradeReport_Files/
