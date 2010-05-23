@@ -101,6 +101,20 @@
   <ItemGroup>
     <None Include="ReadMe.txt" />
     <None Include="ResourceDll_en-US.def" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\ERROR.ICO" />
+    <None Include="res\ico00001.ico" />
+    <None Include="res\ico00002.ico" />
+    <None Include="res\ico00003.ico" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\ListIcons.bmp" />
+    <None Include="res\logo.bmp" />
+    <None Include="res\PostMost.ico" />
+    <None Include="res\PostMostDoc.ico" />
+    <None Include="res\QUESTION.ICO" />
+    <None Include="res\stopwatch.ico" />
+    <None Include="res\Toolbar.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
