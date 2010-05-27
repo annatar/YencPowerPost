@@ -199,7 +199,7 @@ void CPostMostView::OnInitialUpdate()
 	// Create Report columns
 	CString strMyString;
 	strMyString.LoadString(IDS_ARTICLE_SUBJECT_LINE);
-	listCtrl.InsertColumn(0, LPCTSTR(strMyString),m_Settings.m_nViewColWid[0], -1);
+	listCtrl.InsertColumn(0, LPCTSTR(strMyString), LVCFMT_LEFT, m_Settings.m_nViewColWid[0], -1);
 	strMyString.LoadString(IDS_PARTS_TO_POST);
 	listCtrl.InsertColumn(1, LPCTSTR(strMyString), LVCFMT_LEFT, m_Settings.m_nViewColWid[1], -1);
 	strMyString.LoadString(IDS_POSTING_RESULT);
