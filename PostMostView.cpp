@@ -826,7 +826,7 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 						CString mid = currentObj->GenerateMessageID(p,nbp,m_Settings.m_szDomainID);
 						mid=mid.Mid(1,mid.GetLength()-2);
 						mid = XMLize(mid);
-						fprintf(fout,"      <segment bytes=\"%d\" number=\"%d\">%s</segment>\n",
+						fprintf(fout,"      <segment bytes=\"%I64u\" number=\"%d\">%s</segment>\n",
 							(p==nbp-1?currentObj->m_ullFileSize-p*currentObj->m_nPartSize:currentObj->m_nPartSize),
 							p+1,(const char*)mid);
 					}
