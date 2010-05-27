@@ -47,6 +47,28 @@ CPostMostApp theApp;
 
 BOOL CPostMostApp::InitInstance()
 {
+	LANGID language = GetUserDefaultUILanguage();
+	TCHAR buf[20];
+	GetLocaleInfo(GetThreadLocale(), LOCALE_SNAME,  buf, sizeof buf);
+	TCHAR szLibraryName[32];
+	sprintf(szLibraryName, "ResourceDll_%s.dll", buf);
+	#ifdef _DEBUG
+		// Load the debug version of the localized resources.
+		m_hInstResDLL = LoadLibrary(szLibraryName);
+	#else
+		// Load the release version of the localized resources.		
+		m_hInstResDLL = LoadLibrary(szLibraryName);
+	#endif
+		if (m_hInstResDLL == NULL)
+		{
+			// if no localized version found try to default to US English
+			m_hInstResDLL = LoadLibrary("ResourceDll_en-US.dll");
+			DWORD lastError = GetLastError();
+			ASSERT( m_hInstResDLL != NULL );
+		}
+
+	AfxSetResourceHandle(m_hInstResDLL);
+
 	m_pSplashWindow = new CSplashWindow();
 	m_pSplashWindow->Create();
 	m_pSplashWindow->SetFocus();
@@ -131,6 +153,16 @@ BOOL CPostMostApp::InitInstance()
 
 	return TRUE;
 }
+
+int CPostMostApp::ExitInstance()
+{
+   // In case you load multiple DLL's make sure to free them,
+   // and avoid calling FreeLibrary with a NULL pointer.
+
+   FreeLibrary(m_hInstResDLL);
+   return CWinApp::ExitInstance();
+}
+
 
 void CPostMostApp::ApplySkin(const char* skin)
 {

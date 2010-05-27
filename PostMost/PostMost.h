@@ -13,7 +13,7 @@
 #endif
 
 //#ifndef TITLE
-#define TITLE "YENC-POWER-POST-A&A-v11c"
+#define TITLE "YENC-POWER-POST-A&A-v11d"
 //#endif
 
 #include "resource.h"       // main symbols
@@ -35,6 +35,7 @@ public:
 	//{{AFX_VIRTUAL(CPostMostApp)
 	public:
 	virtual BOOL InitInstance();
+	virtual BOOL ExitInstance();
 	//}}AFX_VIRTUAL
 
 // Implementation
@@ -42,6 +43,7 @@ public:
 	CSplashWindow* m_pSplashWindow;
 	CImageList      m_ImageList;
 	CPostMostView*  m_pView;
+	HINSTANCE m_hInstResDLL;
 
 	int m_nAboutBoxSoundNumber;
 
