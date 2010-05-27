@@ -1,5 +1,10 @@
+Version 11D (2010-05-26)
+======================
+- YencPowerPost now supports dynamic loading of MFC extension DLLs for providing localized
+languages.
+   
 
-Version 11C (2010-05-21)
+Version 11C (2010-05-26)
 ======================
 
 - Issue 001 : Added support for display of file queue size over 4 gigabytes
