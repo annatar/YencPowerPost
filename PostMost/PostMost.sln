@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceDll_en-US", "..\Res
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceDll_jp-JP", "..\ResourceDll_jp-JP\ResourceDll_jp-JP.vcxproj", "{BD5F2667-B503-4C0B-AE48-EAFEC32042AC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceDll_fr-BE", "..\ResourceDll_fr-BE\ResourceDll_fr-BE.vcxproj", "{F79B4F28-1F28-47DE-9093-0CCBFADCD73A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{BD5F2667-B503-4C0B-AE48-EAFEC32042AC}.Debug|Win32.Build.0 = Debug|Win32
 		{BD5F2667-B503-4C0B-AE48-EAFEC32042AC}.Release|Win32.ActiveCfg = Release|Win32
 		{BD5F2667-B503-4C0B-AE48-EAFEC32042AC}.Release|Win32.Build.0 = Release|Win32
+		{F79B4F28-1F28-47DE-9093-0CCBFADCD73A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F79B4F28-1F28-47DE-9093-0CCBFADCD73A}.Debug|Win32.Build.0 = Debug|Win32
+		{F79B4F28-1F28-47DE-9093-0CCBFADCD73A}.Release|Win32.ActiveCfg = Release|Win32
+		{F79B4F28-1F28-47DE-9093-0CCBFADCD73A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
