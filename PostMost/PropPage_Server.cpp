@@ -162,7 +162,9 @@ BOOL CPropPage_Server::OnApply()
 			m_pSettings_ApplyTo->Copy(*m_pSettings);
 		else
 		{
-			AfxMessageBox("Dev Error - No Object To Apply Settings To", MB_ICONSTOP);
+			CString strResourceBundleString;
+			strResourceBundleString.LoadString(IDS_DEV_ERROR_NO_OBJECT_TO_APPLY_SETTINGS);
+			AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 			return FALSE;
 		}
 		return CPropertyPage::OnApply();
@@ -187,15 +189,31 @@ BOOL CPropPage_Server::ApplyNewSettings()
 	GetDlgItem(IDC_COMBO_SERVER)->GetWindowText(S);
 	if((S.GetLength() < 2*132) && (S.GetLength() > 0))
 		strcpy(szNew_ServerName, (LPCTSTR) S);
-	else { AfxMessageBox("News Server\r\n\r\nInvalid Server Name Specified (Specify, 263 Chars Max)", MB_ICONSTOP); return FALSE; }
+	else
+	{
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NEWSSERVER_NAME_TOO_LONG);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
+		return FALSE;
+	}
 	
 	// Port
 	GetDlgItem(IDC_EDIT_PORT)->GetWindowText(S);
 	if((S.GetLength() == 0) || (S.GetLength() > 5))
-		{ AfxMessageBox("News Server\r\n\r\nInvalid Port Number Specified", MB_ICONSTOP); return FALSE; }
+	{ 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NEWSSERVER_INVALID_PORT);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
+		return FALSE;
+	}
 	k = atoi((LPCTSTR) S);
 	if((k < 1) || (k > 65535))
-		{ AfxMessageBox("News Server\r\n\r\nInvalid Port Number Specified", MB_ICONSTOP); return FALSE; }
+	{
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NEWSSERVER_INVALID_PORT);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
+		return FALSE;
+	}
 	nNew_ServerPort = k;
 
 	// Connections
@@ -220,7 +238,9 @@ BOOL CPropPage_Server::ApplyNewSettings()
 		strcpy(szNew_Username, (LPCTSTR) S);
 	else if(bNew_LoginRequired)
 	{
-		AfxMessageBox("News Server\r\n\r\nInvalid Username Specified (Specify, 132 Chars Max)", MB_ICONSTOP); 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_IDS_NEWSSERVER_USERNAME_TOO_LONG);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE; 
 	} else strcpy(szNew_Username, (LPCTSTR) S);
 
@@ -230,7 +250,9 @@ BOOL CPropPage_Server::ApplyNewSettings()
 		strcpy(szNew_Password, (LPCTSTR) S);
 	else if(bNew_LoginRequired)
 	{
-		AfxMessageBox("News Server\r\n\r\nInvalid Password Specified (Specify, 132 Chars Max)", MB_ICONSTOP); 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NEWSSERVER_PASSWORD_TOO_LONG);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE; 
 	} else strcpy(szNew_Password, (LPCTSTR) S);
 	
@@ -240,14 +262,18 @@ BOOL CPropPage_Server::ApplyNewSettings()
 		strcpy(szNew_Confirm, (LPCTSTR) S);
 	else if(bNew_LoginRequired)
 	{
-		AfxMessageBox("News Server\r\n\r\nInvalid Confirm Password Specified (Specify, 132 Chars Max)", MB_ICONSTOP); 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_IDS_NEWSSERVER_CONFIRM_PASSWORD_TOO_LONG);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE; 
 	} else strcpy(szNew_Confirm, (LPCTSTR) S);
 
 	// Verify Password == Confirm Password
 	if((bNew_LoginRequired == TRUE) && (strcmp(szNew_Password, szNew_Confirm) != 0))
 	{
-		AfxMessageBox("News Server\r\n\r\nPassword And Confirm Password Do Not Match!", MB_ICONSTOP); 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NEWSSERVER_PASSWORD_MISMATCH);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE; 
 	}
 

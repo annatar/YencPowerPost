@@ -197,15 +197,15 @@ void CPostMostView::OnInitialUpdate()
 	SetListControlColors();
 
 	// Create Report columns
-	CString strMyString;
-	strMyString.LoadString(IDS_ARTICLE_SUBJECT_LINE);
-	listCtrl.InsertColumn(0, LPCTSTR(strMyString), LVCFMT_LEFT, m_Settings.m_nViewColWid[0], -1);
-	strMyString.LoadString(IDS_PARTS_TO_POST);
-	listCtrl.InsertColumn(1, LPCTSTR(strMyString), LVCFMT_LEFT, m_Settings.m_nViewColWid[1], -1);
-	strMyString.LoadString(IDS_POSTING_RESULT);
-	listCtrl.InsertColumn(2, LPCTSTR(strMyString), LVCFMT_LEFT, m_Settings.m_nViewColWid[2], -1);
-	strMyString.LoadString(IDS_NEWSGROUPS);
-	listCtrl.InsertColumn(3, LPCTSTR(strMyString), LVCFMT_LEFT, m_Settings.m_nViewColWid[3], -1);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_ARTICLE_SUBJECT_LINE);
+	listCtrl.InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, m_Settings.m_nViewColWid[0], -1);
+	strResourceBundleString.LoadString(IDS_PARTS_TO_POST);
+	listCtrl.InsertColumn(1, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, m_Settings.m_nViewColWid[1], -1);
+	strResourceBundleString.LoadString(IDS_POSTING_RESULT);
+	listCtrl.InsertColumn(2, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, m_Settings.m_nViewColWid[2], -1);
+	strResourceBundleString.LoadString(IDS_NEWSGROUPS);
+	listCtrl.InsertColumn(3, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, m_Settings.m_nViewColWid[3], -1);
 
 	LoadTasksFromQueue();
 

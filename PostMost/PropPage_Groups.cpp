@@ -64,7 +64,9 @@ BOOL CPropPage_Groups::OnApply()
 			m_pSettings_ApplyTo->Copy(*m_pSettings);
 		else
 		{
-			AfxMessageBox("Application Error - No Object To Apply Settings To", MB_ICONSTOP);
+			CString strResourceBundleString;
+			strResourceBundleString.LoadString(IDS_APP_ERROR_NO_OBJECT_TO_APPLY_SETTINGS);
+			AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 			return FALSE;
 		}
 		return CPropertyPage::OnApply();
@@ -147,7 +149,13 @@ void CPropPage_Groups::OnButtonRemove()
 
 	int nSelected = pListCtrl->GetSelectedCount();
 
-	if(nSelected == 0) { AfxMessageBox("No Newsgroup Selected", MB_ICONINFORMATION); return; }
+	if(nSelected == 0)
+	{
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NO_NEWSGROUP_SELECTED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONINFORMATION); 
+		return;
+	}
 
 	TCHAR szTT[64];
 	sprintf(szTT, "Delete %d selected newsgroups from list?", nSelected);
@@ -172,7 +180,9 @@ BOOL CPropPage_Groups::OnInitDialog()
 
 	CListCtrl* pListCtrl = (CListCtrl*) GetDlgItem(IDC_LIST_GROUPS);
 
-	pListCtrl->InsertColumn(0, "Newsgroup", LVCFMT_LEFT, 320, -1);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_NEWSGROUP);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 320, -1);
 
 	AddGroups(pListCtrl);
 

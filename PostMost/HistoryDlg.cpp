@@ -86,9 +86,13 @@ BOOL CHistoryDlg::OnInitDialog()
 
 	CListCtrl* pListCtrl = (CListCtrl*) GetDlgItem(IDC_LIST_HISTORY);
 
-	pListCtrl->InsertColumn(0, "Article Subject", LVCFMT_LEFT, 320);
-	pListCtrl->InsertColumn(1, "Posted", LVCFMT_LEFT, 64);
-	pListCtrl->InsertColumn(2, "Date Saved", LVCFMT_LEFT, 112);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_HISTORY_ARTICLE_SUBJECT);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 320);
+	strResourceBundleString.LoadString(IDS_HISTORY_POSTED);
+	pListCtrl->InsertColumn(1, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 64);
+	strResourceBundleString.LoadString(IDS_HISTORY_DATE_SAVED);
+	pListCtrl->InsertColumn(2, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 112);
 
 	BuildHistoryFileStats(pListCtrl);
 
@@ -274,7 +278,9 @@ void CHistoryDlg::OnButtonHistDelSel()
 	if(theHistoryFile.Open("HISTORY.DAT", CFile::modeWrite, &cfe) == FALSE)
 	{
 		TRACE("CHistoryDlg::BuildHistoryFileStats() - File Not Opened\n");
-		AfxMessageBox("Error Opening HISTORY.DAT For Writing!", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_HISTORY_ERROR_OPENING_FILE);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return;
 	}
 
@@ -333,7 +339,9 @@ void CHistoryDlg::OnButtonHistQueueSel()
 	if(theHistoryFile.Open("HISTORY.DAT", CFile::modeRead, &cfe) == FALSE)
 	{
 		TRACE("CHistoryDlg::BuildHistoryFileStats() - File Not Opened\n");
-		AfxMessageBox("Error Opening HISTORY.DAT For Writing!", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_HISTORY_ERROR_OPENING_FILE);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return;
 	}
 
@@ -408,6 +416,9 @@ void CHistoryDlg::UpdateHistoryInfoLabel()
 {
 	TCHAR szLabel[256];
 
-	sprintf(szLabel, "Items In List: %d   -   Items Deleted: %d   -   Total: %d", m_nEntries - m_nDeleted, m_nDeleted, m_nEntries);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_ARTICLE_SUBJECT_LINE);
+
+	sprintf(szLabel, LPCTSTR(strResourceBundleString), m_nEntries - m_nDeleted, m_nDeleted, m_nEntries);
 	SetDlgItemText(IDC_LABEL_HISTORY_INFO, szLabel);
 }

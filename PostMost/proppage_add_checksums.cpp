@@ -249,7 +249,9 @@ BOOL CPropPage_Add_Checksums::OnApply()
 
 	if(m_iPartSize % 64 != 0)
 	{
-		AfxMessageBox("Checksums\r\n\r\nPart Size must be a multiple of 64!", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_CHECKSUMS_PART_SIZE_MULTIPLE_64);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		m_iPartSize = ((m_iPartSize+63)/64)*64;
 		SetDlgItemInt(IDC_EDIT_PARTSIZE,m_iPartSize);
 		return(FALSE);

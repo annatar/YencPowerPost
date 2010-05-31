@@ -47,27 +47,7 @@ CPostMostApp theApp;
 
 BOOL CPostMostApp::InitInstance()
 {
-	LANGID language = GetUserDefaultUILanguage();
-	TCHAR buf[20];
-	GetLocaleInfo(GetThreadLocale(), LOCALE_SNAME,  buf, sizeof buf);
-	TCHAR szLibraryName[32];
-	sprintf(szLibraryName, "ResourceDll_%s.dll", buf);
-	#ifdef _DEBUG
-		// Load the debug version of the localized resources.
-		m_hInstResDLL = LoadLibrary(szLibraryName);
-	#else
-		// Load the release version of the localized resources.		
-		m_hInstResDLL = LoadLibrary(szLibraryName);
-	#endif
-		if (m_hInstResDLL == NULL)
-		{
-			// if no localized version found try to default to US English
-			m_hInstResDLL = LoadLibrary("ResourceDll_en-US.dll");
-			DWORD lastError = GetLastError();
-			ASSERT( m_hInstResDLL != NULL );
-		}
-
-	AfxSetResourceHandle(m_hInstResDLL);
+	loadLocalizedResources();
 
 	m_pSplashWindow = new CSplashWindow();
 	m_pSplashWindow->Create();
@@ -152,6 +132,42 @@ BOOL CPostMostApp::InitInstance()
 	m_pMainWnd->UpdateWindow();
 
 	return TRUE;
+}
+
+void CPostMostApp::loadLocalizedResources()
+{
+	LANGID language = GetUserDefaultUILanguage();
+	TCHAR buf[20];
+	GetLocaleInfo(GetThreadLocale(), LOCALE_SNAME,  buf, sizeof buf);
+	TCHAR szLibraryName[32];
+	sprintf(szLibraryName, "ResourceDll_%s.dll", buf);
+	#ifdef _DEBUG
+		// Load the debug version of the localized resources.
+		m_hInstResDLL = LoadLibrary(szLibraryName);
+	#else
+		// Load the release version of the localized resources.		
+		// ex:  ResourceDll_en-UK.dll
+		m_hInstResDLL = LoadLibrary(szLibraryName);
+	#endif
+		
+		if (m_hInstResDLL == NULL)
+		{
+			// loading of country localized DLL failed, try to fallback to language
+			GetLocaleInfo(GetThreadLocale(), LOCALE_SABBREVLANGNAME,  buf, sizeof buf);
+			// ex:  ResourceDll_ENU.dll
+			sprintf(szLibraryName, "ResourceDll_%s.dll", buf);
+			m_hInstResDLL = LoadLibrary(szLibraryName);			
+			if (m_hInstResDLL == NULL)
+			{
+				// if no localized version found try to default to US English
+				m_hInstResDLL = LoadLibrary("ResourceDll_en-US.dll");
+				DWORD lastError = GetLastError();
+				// if US English DLL not present fail
+				ASSERT( m_hInstResDLL != NULL );
+			}
+		}
+
+	AfxSetResourceHandle(m_hInstResDLL);
 }
 
 int CPostMostApp::ExitInstance()

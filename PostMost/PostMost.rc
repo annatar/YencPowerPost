@@ -766,6 +766,45 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Written by Chris Morse"
+            VALUE "FileDescription", "AUTO-POST 2000 MFC Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "AUTO-POST 2000"
+            VALUE "LegalCopyright", "Copyright (C) 1999"
+            VALUE "OriginalFilename", "PostMost.EXE"
+            VALUE "ProductName", "AUTO-POST 2000 Application"
+            VALUE "ProductVersion", "1.1.0.4"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
@@ -991,6 +1030,13 @@ BEGIN
     IDS_CHECKSUMS_PART_SIZE_MULTIPLE_64 
                             "Checksums\r\n\r\nPart Size must be a multiple of 64!"
     IDS_NO_GROUPS_SELECTED_STERN "No Groups Selected!"
+    IDS_HISTORY_ARTICLE_SUBJECT "Article Subject"
+    IDS_HISTORY_POSTED      "Posted"
+    IDS_HISTORY_DATE_SAVED  "Date Saved"
+    IDS_HISTORY_ERROR_OPENING_FILE "Error Opening HISTORY.DAT For Writing!"
+    IDS_HISTORY_INFO_LABEL  "Items In List: %d   -   Items Deleted: %d   -   Total: %d"
+    IDS_NEWSGROUP_ADD_EXISTING_GROUP 
+                            "Newsgroup: %s\r\n\r\nUhh.. Listen..\r\nThat group is already in the list.."
 END
 
 #endif    // English (United States) resources

@@ -64,7 +64,9 @@ void CSetMaxLinesDlg::OnOK()
 
 	if(strlen(szNumber) == 0)
 	{
-		AfxMessageBox("Enter a Number between One and Ten Thousand\r\nor Click Cancel", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_ENTER_NUMBER_RANGE_1_TO_10000);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return;
 	}
 
@@ -72,7 +74,9 @@ void CSetMaxLinesDlg::OnOK()
 
 	if((m_nMaxLines < 1000) || (m_nMaxLines > 32000))
 	{
-		AfxMessageBox("Number Out Of Range!\r\n\r\nEnter a Number between 1,000 and 32,000\r\nor Click Cancel", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NUMBER_OUT_OF_RANGE_1000_TO_32000);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return;
 	}
 

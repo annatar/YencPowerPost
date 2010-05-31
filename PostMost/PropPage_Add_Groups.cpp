@@ -76,7 +76,9 @@ BOOL CPropPage_Add_Groups::OnApply()
 				++nSelected;
 				if(nSelected > 8)
 				{
-					AfxMessageBox("Newsgroups\r\n\r\nToo many groups selected.  Max is 8.", MB_ICONSTOP);
+					CString strResourceBundleString;
+					strResourceBundleString.LoadString(IDS_NEWSGROUPS_TOO_MANY_NEWSGROUPS_SELECTED);
+					AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 					return(FALSE);
 				}
 
@@ -89,7 +91,9 @@ BOOL CPropPage_Add_Groups::OnApply()
 	}
 	if(m_strGroupList.GetLength() == 0)
 	{
-		AfxMessageBox("Newsgroups\r\n\r\nNo Newsgroups Selected!", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NEWSGROUPS_NO_NEWSGROUPS_SELECTED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return(FALSE);
 	}
 
@@ -109,7 +113,9 @@ BOOL CPropPage_Add_Groups::OnInitDialog()
 	CListCtrl* pListCtrl = (CListCtrl*) GetDlgItem(IDC_LIST_GROUPS);
 
 	pListCtrl->SetImageList(&m_StateImageList, LVSIL_STATE);
-	pListCtrl->InsertColumn(0, "Newsgroup", LVCFMT_LEFT, 320, -1);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_NEWSGROUP);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 320, -1);
 
 	CStringArray CSA_GroupList;
 	CString strGroupName;
@@ -203,7 +209,9 @@ void CPropPage_Add_Groups::OnButtonAddGroup()
 
 		if(::CM_CSA_SEEK(m_pSettings->m_GroupList, (LPCTSTR) dlg.m_GroupName) >= 0)
 		{
-			sprintf(szTT, "Newsgroup: %s\r\n\r\nUhh.. Listen..\r\nThat group is already in the list..", szGroupName);
+			CString strResourceBundleString;
+			strResourceBundleString.LoadString(IDS_NEWSGROUP_ADD_EXISTING_GROUP);
+			sprintf(szTT, LPCTSTR(strResourceBundleString), szGroupName);
 			AfxMessageBox(szTT, MB_ICONINFORMATION);
 			return;
 		}

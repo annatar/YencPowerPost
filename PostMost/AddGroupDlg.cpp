@@ -57,12 +57,16 @@ void CAddGroupDlg::OnOK()
 	GetDlgItem(IDC_EDIT_GROUP)->GetWindowText(m_GroupName);
 	if(m_GroupName.GetLength() == 0)
 	{
-		AfxMessageBox("Er, ... You didn't enter a group name!", MB_ICONINFORMATION);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NO_GROUP_NAME_ENTERED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONINFORMATION);
 		return;
 	}
 	if(m_GroupName.GetLength() > 132)
 	{
-		AfxMessageBox("Damn!  That's a big group name.  Sorry, but, 132 Characters Max", MB_ICONINFORMATION);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_GROUP_NAME_LENGTH_EXCEEDED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONINFORMATION);
 		return;
 	}
 	CDialog::OnOK();

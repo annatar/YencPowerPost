@@ -60,8 +60,11 @@ BOOL CPropPage_Add_FileOrder::OnInitDialog()
 	
 	CListCtrl* pListCtrl  = (CListCtrl*) GetDlgItem(IDC_LIST_FILE_ORDER);
 
-	pListCtrl->InsertColumn(0, "Filename", LVCFMT_LEFT, 320, -1);
-	pListCtrl->InsertColumn(1, "Directory", LVCFMT_LEFT, 0, -1);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_FILENAME);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 320, -1);
+	strResourceBundleString.LoadString(IDS_DIRECTORY);
+	pListCtrl->InsertColumn(1, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 0, -1);
 
 	// Calculate Common Directory Used In Each File
 	TCHAR szTemp[_MAX_PATH];

@@ -65,7 +65,9 @@ BOOL CPropPage_Add_Subject::OnApply()
 {
 	if(((*m_pdwActivation) & PAGE__GROUPS) == 0 && !m_bGroupsOK)
 	{
-		AfxMessageBox("No Groups Selected", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NO_GROUPS_SELECTED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return(FALSE);
 	}
 
@@ -74,7 +76,9 @@ BOOL CPropPage_Add_Subject::OnApply()
 
 	if (CString(szTemplate) == m_last_strSubjectPrefixTemplate)
 	{
-		if (AfxMessageBox("You did not change the subject line.\nIs it ok?", MB_YESNO|MB_ICONQUESTION|MB_DEFBUTTON2)==IDNO)
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_SUBJECT_LINE_UNCHANGED);
+		if (AfxMessageBox(LPCTSTR(strResourceBundleString), MB_YESNO|MB_ICONQUESTION|MB_DEFBUTTON2)==IDNO)
 			return (FALSE);
 	}
 
@@ -82,7 +86,9 @@ BOOL CPropPage_Add_Subject::OnApply()
 
 	if(::CM_BuildSubjectFromTemplate(szTemplate, m_Ex_szDirectory, m_Ex_szFilename, m_Ex_Filesize, 1, m_Ex_nFileCount, szSubject) == FALSE)
 	{
-		AfxMessageBox("Subject template must include $F", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_SUBJECT_LINE_MISSING_DOLLARF);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE;
 	}
 	

@@ -124,7 +124,9 @@ BOOL CPropPage_Headers::OnApply()
 			m_pSettings_ApplyTo->Copy(*m_pSettings);
 		else
 		{
-			AfxMessageBox("Application Error - No Object To Apply Settings To", MB_ICONSTOP);
+			CString strResourceBundleString;
+			strResourceBundleString.LoadString(IDS_APP_ERROR_NO_OBJECT_TO_APPLY_SETTINGS);
+			AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 			return FALSE;
 		}
 		return CPropertyPage::OnApply();
@@ -154,7 +156,9 @@ BOOL CPropPage_Headers::ApplyNewSettings()
 	GetDlgItem(IDC_EDIT_FROM)->GetWindowText(S);
 	if(S.GetLength() == 0)
 	{ 
-		AfxMessageBox("Headers\r\n\r\n'(e-mail) From:' Field Is Required!", MB_ICONSTOP); 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_HEADERS_FROM_REQUIRED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP); 
 		return FALSE;
 	}
 	strcpy(szNew_From, (LPCTSTR) S);

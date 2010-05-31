@@ -74,7 +74,9 @@ BOOL CTaskProp_FileAndParts::OnInitDialog()
 
 	m_StateImageList.Create(IDB_STATEICONS,16,1, RGB(255,0,0));
 	pListCtrl->SetImageList(&m_StateImageList, LVSIL_STATE);
-	pListCtrl->InsertColumn(0, "Select Parts To Post", LVCFMT_LEFT, 192);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_SELECT_PARTS_TO_POST);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 192);
 
 	// Limit Subject Text To _MAX_PATH
 	CEdit* pEdit = (CEdit*) GetDlgItem(IDC_EDIT_TASK_SUBJECT);

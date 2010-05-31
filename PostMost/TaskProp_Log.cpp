@@ -56,7 +56,9 @@ BOOL CTaskProp_Log::OnInitDialog()
 	
 	CListCtrl* pListCtrl = (CListCtrl*) GetDlgItem(IDC_LIST_TASK_LOG);
 
-	pListCtrl->InsertColumn(0, "Log Item Text", LVCFMT_LEFT, 512);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_LOG_ITEM_TEXT);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 512);
 
 	int nLogItems = m_pTaskObject->m_Log.GetSize();
 
@@ -76,7 +78,9 @@ void CTaskProp_Log::OnButtonTaskItemClearLog()
 	if(m_bSound) PlaySound((LPCTSTR) IDR_WAVE_HISTORY_ERASER, NULL, SND_ASYNC | SND_RESOURCE);
 
 	CDeleteHistoryConfirmDlg Dlg;
-	strcpy(Dlg.m_szText, "Delete Task Log History?");
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_DELETE_TASK_LOG_HISTORY);
+	strcpy(Dlg.m_szText, LPCTSTR(strResourceBundleString));
 
 	if(Dlg.DoModal() == IDOK)
 	{

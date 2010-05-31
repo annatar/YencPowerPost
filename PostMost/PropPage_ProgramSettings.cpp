@@ -162,10 +162,20 @@ BOOL CPropPage_ProgramSettings::ApplyNewSettings()
 	// Max Lines
 	GetDlgItem(IDC_EDIT_MAXLINES)->GetWindowText(S);
 	if((S.GetLength() == 0) || (S.GetLength() > 5))
-		{ AfxMessageBox("Program\r\n\r\nInvalid Max-Lines Number Specified\r\n(Range is 500 to 32000)", MB_ICONSTOP); return FALSE; }
+	{ 
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_PROGRAM_INVALID_MAX_LINES);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
+		return FALSE;
+	}
 	k = atoi((LPCTSTR) S);
 	if((k < 500) || (k > 32000))
-		{ AfxMessageBox("Program\r\n\r\nInvalid Max-Lines Number Specified\r\n(Range is 500 to 32000)", MB_ICONSTOP); return FALSE; }
+	{
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_PROGRAM_INVALID_MAX_LINES);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
+		return FALSE;
+	}
 	nNew_MaxLines = k;
 
 	// Highlight Current File being Posted
@@ -228,7 +238,9 @@ BOOL CPropPage_ProgramSettings::OnApply()
 			m_pSettings_ApplyTo->Copy(*m_pSettings);
 		else
 		{
-			AfxMessageBox("Dev Error - No Object To Apply Settings To", MB_ICONSTOP);
+			CString strResourceBundleString;
+			strResourceBundleString.LoadString(IDS_DEV_ERROR_NO_OBJECT_TO_APPLY_SETTINGS);
+			AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 			return FALSE;
 		}
 		return CPropertyPage::OnApply();

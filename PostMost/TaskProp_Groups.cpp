@@ -53,12 +53,16 @@ BOOL CTaskProp_Groups::OnApply()
 	int nSelected = GetSelectedGroupCount();
 	if(nSelected == 0)
 	{
-		AfxMessageBox("No Groups Selected!", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_NO_GROUPS_SELECTED_STERN);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE;
 	}
 	if(nSelected > 8)
 	{
-		AfxMessageBox("Too Many Groups Selected!  Maximum of 8 Groups!", MB_ICONSTOP);
+		CString strResourceBundleString;
+		strResourceBundleString.LoadString(IDS_TOO_MANY_GROUPS_SELECTED);
+		AfxMessageBox(LPCTSTR(strResourceBundleString), MB_ICONSTOP);
 		return FALSE;
 	}
 	
@@ -82,7 +86,9 @@ BOOL CTaskProp_Groups::OnInitDialog()
 
 	m_StateImageList.Create(IDB_STATEICONS,16,1, RGB(255,0,0));
 	pListCtrl->SetImageList(&m_StateImageList, LVSIL_STATE);
-	pListCtrl->InsertColumn(0, "Target Newsgroups", LVCFMT_LEFT, 192);
+	CString strResourceBundleString;
+	strResourceBundleString.LoadString(IDS_TARGET_NEWSGROUPS);
+	pListCtrl->InsertColumn(0, LPCTSTR(strResourceBundleString), LVCFMT_LEFT, 192);
 
 	// Set m_CSA_TaskGroupList from m_pTaskObject->m_strGroups
 	m_CSA_TaskGroupList.RemoveAll();
