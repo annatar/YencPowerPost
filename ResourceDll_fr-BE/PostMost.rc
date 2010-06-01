@@ -85,6 +85,39 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 190
     END
+
+    IDD_PROPPAGE_ADD_TEXT_PREFIX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        VERTGUIDE, 135
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_PROPPAGE_ADD_SUBJECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_ADD_ORDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_PROPPAGE_ADD_GROUPS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -162,13 +195,13 @@ BEGIN
     RTEXT           "(e-mail)  Répondre à:",IDC_STATIC,7,59,67,14,SS_CENTERIMAGE
     RTEXT           "Organisation:",IDC_STATIC,7,77,67,14,SS_CENTERIMAGE
     CTEXT           "Spécifier l'entête à chacun des articles.",IDC_STATIC,7,10,210,13,SS_CENTERIMAGE
-    ICON            IDR_MAINFRAME,IDC_STATIC,7,166,21,20,0,WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,166,20,20,0,WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
     RTEXT           "Pseudo:",IDC_STATIC,7,25,67,14,SS_CENTERIMAGE
     RTEXT           "Répondre dans:",IDC_STATIC,7,93,67,14,SS_CENTERIMAGE
     CONTROL         "Faire une file de discussion des fichiers multi-parties (EXPERIMENTAL)",IDC_CHECK_FILETHREAD,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,37,112,180,28
     EDITTEXT        IDC_EDIT_DOMAINID,84,143,133,14,ES_AUTOHSCROLL | WS_DISABLED
-    RTEXT           "Unique domain ID:",IDC_STATIC,7,143,81,14,SS_CENTERIMAGE | WS_DISABLED
+    RTEXT           "Unique domain ID:",IDC_STATIC,7,143,70,14,SS_CENTERIMAGE | WS_DISABLED
 END
 
 IDD_PROPPAGE_GROUPS DIALOGEX 0, 0, 232, 199
@@ -223,6 +256,64 @@ BEGIN
     CTEXT           "Et tous les Posteurs @ alt.binaries.cartoons.french.d",IDC_STATIC,25,162,275,10,SS_CENTERIMAGE
 END
 
+IDD_PROPPAGE_ADD_TEXT_PREFIX DIALOGEX 0, 0, 232, 212
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Texte de préfixe (0/N)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDIT_PREFIX_TEXT,7,7,218,170,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    CONTROL         "Envoyer le texte avec préfixe",IDC_CHECK_SEND_TEXT_PREFIX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,178,110,11
+    CONTROL         "Pour tous les fichiers",IDC_RADIO_PREFIX_ALL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,180,81,10
+    CONTROL         "Juste le premier fichier",IDC_RADIO_PREFIX_FIRST_ONLY,
+                    "Button",BS_AUTORADIOBUTTON,135,191,83,10
+END
+
+IDD_PROPPAGE_ADD_SUBJECT DIALOGEX 0, 0, 232, 199
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Titre"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Entrer le modèle du Titre:",IDC_STATIC,7,7,109,9,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_SUBJECT_TEMPLATE,7,20,218,12,ES_AUTOHSCROLL
+    CONTROL         "Insérer fichiers au début de la liste",IDC_CHECK_INSERT_HEAD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,131,134,11
+    CONTROL         "Inclure les sous-répertoires",IDC_CHECK_PROCESS_DIRECTORIES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,145,150,11
+    CONTROL         "Récursivement",IDC_CHECK_RECURSIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,63,159,139,11
+    CONTROL         "Numéroter les fichiers des répertoires séparément",IDC_CHECK_ENUMBYDIR,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,63,170,139,22
+    LTEXT           "Exemple:",IDC_STATIC,7,36,35,9,SS_CENTERIMAGE
+    LTEXT           "<< Example Header >>",IDC_STATIC_EX_OUTPUT,49,35,176,24,SS_SUNKEN
+    LTEXT           "$B - Taille du fichier (en octets)\r\n$K - Taille du fichier (en K)\r\n$$ - Ajoute le signe ""$""\r\n$P - Ajoute le chemin complet",IDC_STATIC,125,82,100,39
+    LTEXT           "$1 - Numéro du fichier\r\n$2 - Nombre total de fichiers\r\n$F - Ajoute le nom du fichier\r\n$D - Ajoute le nom du répertoire",IDC_STATIC,23,82,95,41
+    CTEXT           "NOTE: $F est Requis",IDC_STATIC,129,7,96,9,SS_CENTERIMAGE | WS_BORDER
+    RTEXT           "(Exemple : Fichier.xyz, 1 de 10, 1024K)",IDC_STATIC_EXAMPLE_INFO,49,61,176,11
+END
+
+IDD_PROPPAGE_ADD_ORDER DIALOGEX 0, 0, 235, 199
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Ordre des fichiers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "Choisir l'ordre dans lequel les fichiers seront ajoutés",IDC_STATIC,7,7,221,11,SS_CENTERIMAGE
+    CONTROL         "List1",IDC_LIST_FILE_ORDER,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,20,221,156
+    PUSHBUTTON      "Un vers le haut",IDC_BUTTON_AFO_UP,7,178,54,14,BS_FLAT
+    PUSHBUTTON      "Un vers le bas",IDC_BUTTON_AFO_DOWN,63,178,52,14,BS_FLAT
+    PUSHBUTTON      "Trier .&PXX",IDC_BUTTON_AFO_SORTPAR,117,178,41,14,BS_FLAT
+    PUSHBUTTON      "Supprimer",IDC_BUTTON_AFO_DELFILE,161,178,38,14,BS_FLAT
+    PUSHBUTTON      "Ajouter",IDC_BUTTON_ADD,201,178,27,14,BS_FLAT
+END
+
+IDD_PROPPAGE_ADD_GROUPS DIALOGEX 0, 0, 232, 199
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Groupes de news"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LIST_GROUPS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,7,7,218,167
+    PUSHBUTTON      "&Ajouter groupes ...",IDC_BUTTON_ADD_GROUP,162,177,63,15
+END
+
 #endif    // French resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -272,38 +363,6 @@ BEGIN
         RIGHTMARGIN, 248
         TOPMARGIN, 7
         BOTTOMMARGIN, 184
-    END
-
-    IDD_PROPPAGE_ADD_TEXT_PREFIX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 225
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 192
-    END
-
-    IDD_PROPPAGE_ADD_SUBJECT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 225
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 192
-    END
-
-    IDD_PROPPAGE_ADD_ORDER, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 225
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 192
-    END
-
-    IDD_PROPPAGE_ADD_GROUPS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 225
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 192
     END
 
     IDD_DIALOG_PROGRESS, DIALOG
@@ -413,63 +472,6 @@ BEGIN
     CONTROL         "List1",IDC_LIST_TARGET_GROUPS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,15,24,224,142
     PUSHBUTTON      "&Add Group ...",IDC_BUTTON_TASK_ADD_GROUP,180,169,59,15
     CTEXT           "Select Up To 8 Groups",IDC_STATIC,49,7,153,12,SS_CENTERIMAGE
-END
-
-IDD_PROPPAGE_ADD_TEXT_PREFIX DIALOG 0, 0, 232, 199
-STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Prefix (0/N) Text"
-FONT 8, "MS Sans Serif"
-BEGIN
-    EDITTEXT        IDC_EDIT_PREFIX_TEXT,7,7,218,170,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
-    CONTROL         "Send Prefix Text With",IDC_CHECK_SEND_TEXT_PREFIX,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,181,90,11
-    CONTROL         "All Files",IDC_RADIO_PREFIX_ALL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,113,182,43,10
-    CONTROL         "First File Only",IDC_RADIO_PREFIX_FIRST_ONLY,"Button",BS_AUTORADIOBUTTON,163,182,62,10
-END
-
-IDD_PROPPAGE_ADD_SUBJECT DIALOG 0, 0, 232, 199
-STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Subject"
-FONT 8, "MS Sans Serif"
-BEGIN
-    LTEXT           "Enter Subject Header Template:",IDC_STATIC,7,7,109,9,SS_CENTERIMAGE
-    EDITTEXT        IDC_EDIT_SUBJECT_TEMPLATE,7,20,218,12,ES_AUTOHSCROLL
-    CONTROL         "Insert Files At &Beginning Of Queue",IDC_CHECK_INSERT_HEAD,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,131,134,11
-    CONTROL         "Process Sub-&Directories",IDC_CHECK_PROCESS_DIRECTORIES,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,145,150,11
-    CONTROL         "Recursively",IDC_CHECK_RECURSIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,63,159,139,11
-    CONTROL         "Number Files In Folders Seperately",IDC_CHECK_ENUMBYDIR,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,63,172,139,11
-    LTEXT           "Example:",IDC_STATIC,7,36,35,9,SS_CENTERIMAGE
-    LTEXT           "<< Example Header >>",IDC_STATIC_EX_OUTPUT,49,35,176,24,SS_SUNKEN
-    LTEXT           "$B - Inserts File Size (in Bytes)\r\n$K - Inserts File Size (in K)\r\n$$ - Inserts ""$"" sign\r\n$P - Insert Full Path",IDC_STATIC,125,82,100,39
-    LTEXT           "$1 - Insert File Number\r\n$2 - Insert File Count\r\n$F - Insert Filename\r\n$D - Insert Directory Name",IDC_STATIC,23,82,95,41
-    CTEXT           "NOTE: $F Is Required",IDC_STATIC,129,7,96,9,SS_CENTERIMAGE | WS_BORDER
-    RTEXT           "(Example is FILE.ZYX, 1 of 10, 1024K)",IDC_STATIC_EXAMPLE_INFO,49,61,176,11
-END
-
-IDD_PROPPAGE_ADD_ORDER DIALOG 0, 0, 232, 199
-STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "File Order"
-FONT 8, "MS Sans Serif"
-BEGIN
-    CTEXT           "Select Order In Which Files Will Be Added",IDC_STATIC,7,7,218,11,SS_CENTERIMAGE
-    CONTROL         "List1",IDC_LIST_FILE_ORDER,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,20,218,156
-    PUSHBUTTON      "Move &Up",IDC_BUTTON_AFO_UP,7,178,46,14,BS_FLAT
-    PUSHBUTTON      "Move &Down",IDC_BUTTON_AFO_DOWN,57,178,46,14,BS_FLAT
-    PUSHBUTTON      "Sort .&PXX",IDC_BUTTON_AFO_SORTPAR,107,178,45,14,BS_FLAT
-    PUSHBUTTON      "Remove",IDC_BUTTON_AFO_DELFILE,156,178,38,14,BS_FLAT
-    PUSHBUTTON      "Add",IDC_BUTTON_ADD,198,178,27,14,BS_FLAT
-END
-
-IDD_PROPPAGE_ADD_GROUPS DIALOG 0, 0, 232, 199
-STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Newsgroups"
-FONT 8, "MS Sans Serif"
-BEGIN
-    CONTROL         "List1",IDC_LIST_GROUPS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,7,7,218,167
-    PUSHBUTTON      "&Add Group ...",IDC_BUTTON_ADD_GROUP,166,177,59,15
 END
 
 IDD_DIALOG_PROGRESS DIALOGEX 0, 0, 370, 249
@@ -953,7 +955,7 @@ BEGIN
         BEGIN
             VALUE "Comments", "Written by annatar"
             VALUE "FileDescription", "Belgian French Resource Provider"
-            VALUE "FileVersion", "1.0.0.1"
+            VALUE "FileVersion", "1.0.0.2"
             VALUE "InternalName", "ResourceDll_fr-BE"
             VALUE "LegalCopyright", "Copyright (C) 2010"
             VALUE "OriginalFilename", "ResourceDll_fr-BE.dll"
