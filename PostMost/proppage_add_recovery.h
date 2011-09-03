@@ -28,8 +28,6 @@ public:
 	//}}AFX_DATA
 	DWORD* m_pdwActivation;
 
-	BOOL	m_bSound;
-
 	//CStringArray*  m_pDWA_FileNames;
 
 	//CString m_sSFV;

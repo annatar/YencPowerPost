@@ -20,7 +20,6 @@ IMPLEMENT_DYNCREATE(CTaskProp_FileAndParts, CPropertyPage)
 CTaskProp_FileAndParts::CTaskProp_FileAndParts() : CPropertyPage(CTaskProp_FileAndParts::IDD)
 {
 	m_pTaskObject = (CTaskObject*) NULL;
-	m_bSound = TRUE;
 	m_nPartsChecked = 0;
 }
 

@@ -62,7 +62,6 @@ CProgramSettings::CProgramSettings()
 	m_bAutoRetry = TRUE;
 	m_bDefaultListViewColors = FALSE;
 	m_bSysTrayIcon = FALSE;
-	m_bSound = TRUE;
 	m_bStallTimeoutEnabled = TRUE;
 	m_nMinuteStallTimeout = 2;
 	m_bDetectPAR2 = FALSE;
@@ -165,9 +164,6 @@ BOOL CProgramSettings::LoadFromRegistry()
 
 	m_bSysTrayIcon = pApp->GetProfileInt("Settings", "SysTray", FALSE);
 	if((m_bSysTrayIcon != TRUE) && (m_bSysTrayIcon != FALSE)) m_bSysTrayIcon = FALSE;
-
-	m_bSound = pApp->GetProfileInt("Settings","Sound", nDefault_bSound);
-	if((m_bSound != TRUE) && (m_bSound != FALSE)) m_bSound = nDefault_bSound;
 
 	S = pApp->GetProfileString("Settings","Skin", szDefault_Skin);
 	if((S.GetLength() > MAX_PATH-1) || (S.GetLength() == 0)) S = szDefault_Skin;
@@ -298,7 +294,6 @@ BOOL CProgramSettings::SaveToRegistry()
 	pApp->WriteProfileInt   ("Settings","HL_Last",			m_bHighlightCurrentFile);
 	pApp->WriteProfileInt   ("Settings","SortOnAdd",        m_bSortFilesOnAdd);
 	pApp->WriteProfileInt   ("Settings","SysTray",          m_bSysTrayIcon);
-	pApp->WriteProfileInt   ("Settings","Sound",			m_bSound);
 	pApp->WriteProfileInt   ("Settings","AutoRetry",        m_bAutoRetry);
 	pApp->WriteProfileInt   ("Settings","DetectPAR2",        m_bDetectPAR2);
 	pApp->WriteProfileInt   ("Settings","AutoShowProgress", m_bShowProgressDialogOnStart);

@@ -28,8 +28,6 @@ public:
 
 	DWORD* m_pdwActivation;
 
-	BOOL	m_bSound;
-
 	CString m_strGroupList;
 
 	CProgramSettings* m_pSettings;

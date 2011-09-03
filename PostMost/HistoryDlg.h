@@ -23,7 +23,6 @@ public:
 	enum { IDD = IDD_DIALOG_POSTMOST_HISTORY };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-	BOOL		m_bSound;
 	CRect		m_rectAnimateFrom;
 
 	CPostMostView* m_pView;

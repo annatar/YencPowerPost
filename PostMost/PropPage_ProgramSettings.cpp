@@ -46,7 +46,6 @@ BEGIN_MESSAGE_MAP(CPropPage_ProgramSettings, CPropertyPage)
 	//{{AFX_MSG_MAP(CPropPage_ProgramSettings)
 	ON_BN_CLICKED(IDC_CHECK_HL_LAST, OnCheckHLLast)
 	ON_BN_CLICKED(IDC_CHECK_SHOWPROGRESSONSTART, OnCheckShowProgressOnStart)
-	ON_BN_CLICKED(IDC_CHECK_SOUND, OnCheckSound)
 	ON_EN_CHANGE(IDC_EDIT_MAXLINES, OnChangeEditMaxLines)
 	ON_BN_CLICKED(IDC_CHECK_SORTFILES, OnCheckSortfiles)
 	ON_BN_CLICKED(IDC_CHECK_AUTORETRY, OnCheckAutoRetry)
@@ -130,17 +129,6 @@ BOOL CPropPage_ProgramSettings::OnInitDialog()
 	else
 		((CButton*) GetDlgItem(IDC_CHECK_SYSTRAY))->SetCheck(0);
 
-	// IDC_CHECK_SOUND
-#ifdef INCLUDESOUND
-	if(m_pSettings->m_bSound)
-		((CButton*) GetDlgItem(IDC_CHECK_SOUND))->SetCheck(1);
-	else
-		((CButton*) GetDlgItem(IDC_CHECK_SOUND))->SetCheck(0);
-#else
-		((CButton*) GetDlgItem(IDC_CHECK_SOUND))->SetCheck(0);
-		GetDlgItem(IDC_CHECK_SOUND)->EnableWindow(0);
-#endif
-
 	((CButton*) GetDlgItem(IDC_CHECK_DETECTPAR2))->SetCheck(m_pSettings->m_bDetectPAR2?1:0);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -157,7 +145,6 @@ BOOL CPropPage_ProgramSettings::ApplyNewSettings()
 	BOOL  bSortFiles;
 	BOOL  bAutoRetry;
 	BOOL  bSysTray;
-	BOOL  bSound;
 
 	// Max Lines
 	GetDlgItem(IDC_EDIT_MAXLINES)->GetWindowText(S);
@@ -204,11 +191,6 @@ BOOL CPropPage_ProgramSettings::ApplyNewSettings()
 	else
 		bSysTray = FALSE;
 
-	if(((CButton*) GetDlgItem(IDC_CHECK_SOUND))->GetCheck() == 1)
-		bSound = TRUE;
-	else
-		bSound = FALSE;
-
 	// .:. Everything passed OK.. Apply it to object
 	m_pSettings->m_nMaxLines = nNew_MaxLines;
 	m_pSettings->m_bHighlightCurrentFile = bHighlightCurrentFile;
@@ -216,7 +198,6 @@ BOOL CPropPage_ProgramSettings::ApplyNewSettings()
 	m_pSettings->m_bSortFilesOnAdd = bSortFiles;
 	m_pSettings->m_bAutoRetry = bAutoRetry;
 	m_pSettings->m_bSysTrayIcon = bSysTray;
-	m_pSettings->m_bSound = bSound;
 	m_pSettings->m_bDetectPAR2=(((CButton*) GetDlgItem(IDC_CHECK_DETECTPAR2))->GetCheck() == 1)?TRUE:FALSE;
 
 	GetDlgItem(IDC_COMBO_SKIN)->GetWindowText(S);
@@ -253,11 +234,6 @@ BOOL CPropPage_ProgramSettings::OnSetActive()
 	CMainFrame* pMainFrame = (CMainFrame*) (AfxGetApp()->m_pMainWnd);
 	CPostMostView* pView = (CPostMostView*) pMainFrame->GetActiveView();
 
-#ifdef INCLUDESOUND
-	if(pView->m_Settings.m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_CLAP, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);	
-#endif
-
 	return CPropertyPage::OnSetActive();
 }
 
@@ -269,15 +245,6 @@ void CPropPage_ProgramSettings::OnCheckHLLast()
 void CPropPage_ProgramSettings::OnCheckShowProgressOnStart() 
 {
 	SetModified();
-}
-
-void CPropPage_ProgramSettings::OnCheckSound() 
-{
-	SetModified();
-#ifdef INCLUDESOUND
-	if(((CButton*) GetDlgItem(IDC_CHECK_SOUND))->GetCheck() == 1)
-		PlaySound((LPCTSTR) IDR_WAVE_CHEESYPOOFS, NULL, SND_ASYNC | SND_RESOURCE);
-#endif
 }
 
 void CPropPage_ProgramSettings::OnChangeEditMaxLines() 

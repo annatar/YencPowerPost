@@ -28,8 +28,6 @@ public:
 
 	DWORD* m_pdwActivation;
 
-	BOOL	m_bSound;
-	
 	CStringArray*  m_pDWA_FileNames;
 
 	void _BreakFilename(LPCTSTR FullFilename, char* szDir, char* szFile);

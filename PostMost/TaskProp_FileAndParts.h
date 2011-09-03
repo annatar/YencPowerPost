@@ -30,8 +30,6 @@ public:
 	
 	CImageList m_StateImageList;
 
-	BOOL m_bSound;
-
 	int m_nPartsChecked;	// IDC_STATIC_N_CHECKED
 	
 

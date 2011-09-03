@@ -55,7 +55,6 @@ public:
 	BOOL      m_bAutoRetry;
 	BOOL      m_bDefaultListViewColors;
 	BOOL      m_bSysTrayIcon;
-	BOOL			m_bSound;
 	BOOL			m_bStallTimeoutEnabled;
 	int       m_nMinuteStallTimeout;
 	BOOL      m_bDetectPAR2;

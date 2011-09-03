@@ -266,15 +266,6 @@ void CMainFrame::OnClose()
 
 	pView->RemoveAllTasks(FALSE);
 
-#ifdef INCLUDESOUND
-	if(pView->m_Settings.m_bSound)
-	{
-		CWaitCursor wc;
-		PlaySound((LPCTSTR) IDR_WAVE_BELL, NULL, SND_RESOURCE | SND_ASYNC | SND_SYNC);
-		::Sleep(1500);
-	}
-#endif
-
 	pView->SaveColumnWidthsToSettings();
 	pView->m_Settings.SaveToRegistry();
 	pView->StopWaitTimer();

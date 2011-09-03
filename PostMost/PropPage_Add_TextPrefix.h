@@ -28,8 +28,6 @@ public:
 
 	DWORD* m_pdwActivation;
 
-	BOOL	m_bSound;
-
 	BOOL    m_bSendTextPrefix;
 	BOOL    m_bSendTextFirstFileOnly;
 

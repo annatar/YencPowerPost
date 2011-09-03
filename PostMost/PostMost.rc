@@ -365,7 +365,7 @@ BEGIN
     END
     POPUP "&Help"
     BEGIN
-        MENUITEM "About YENC-POWER-POST-A&A-v11c... ", ID_APP_ABOUT
+        MENUITEM "About YENC-POWER-POST-A&A-v11f... ", ID_APP_ABOUT
     END
 END
 
@@ -386,6 +386,23 @@ IDI_ICON_TRAY_ERROR     ICON                    "res\\ico00002.ico"
 IDI_ICON_STOP_WATCH     ICON                    "res\\stopwatch.ico"
 IDI_ICON_QUESTION       ICON                    "res\\QUESTION.ICO"
 IDI_ICON_ERROR          ICON                    "res\\ERROR.ICO"
+IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
+
+IDR_POSTMOTYPE          ICON                    "res\\idr_post.ico"
+
+IDI_ICON_TRAY_WAITING   ICON                    "res\\icon_tra.ico"
+
+IDI_ICON_TRAY_READY     ICON                    "res\\ico00004.ico"
+
+IDI_ICON_TRAY_POSTING   ICON                    "res\\ico00005.ico"
+
+IDI_ICON_TRAY_ERROR     ICON                    "res\\ico00006.ico"
+
+IDI_ICON_STOP_WATCH     ICON                    "res\\icon_sto.ico"
+
+IDI_ICON_QUESTION       ICON                    "res\\icon_que.ico"
+
+IDI_ICON_ERROR          ICON                    "res\\icon_err.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -482,7 +499,6 @@ BEGIN
     CONTROL         "Auto-Retry On Errors, Disconnects && Timeouts?",IDC_CHECK_AUTORETRY,
                     "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,118,175,13
     CONTROL         "Minimize Program To SysTray?",IDC_CHECK_SYSTRAY,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,138,175,13
-    CONTROL         "Play Sounds?",IDC_CHECK_SOUND,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,27,176,175,13
     RTEXT           "Default Max Lines Per Part:",IDC_STATIC,34,40,116,10
     ICON            IDR_MAINFRAME,IDC_STATIC,7,172,20,20,0,WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
     CONTROL         "Autodetect .PAR2 bloc size",IDC_CHECK_DETECTPAR2,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,28,157,175,13
@@ -730,7 +746,7 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 317, 197
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About YENC-POWER-POST-A&A-v11c"
+CAPTION "About YENC-POWER-POST-A&A-v11f"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "POST THE MOST!",IDC_STATIC_VERSION,37,10,228,11,SS_NOPREFIX | SS_CENTERIMAGE
@@ -768,6 +784,39 @@ END
 //
 // Version
 //
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Written by Chris Morse"
+            VALUE "FileDescription", "AUTO-POST 2000 MFC Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "AUTO-POST 2000"
+            VALUE "LegalCopyright", "Copyright (C) 1999"
+            VALUE "OriginalFilename", "PostMost.EXE"
+            VALUE "ProductName", "AUTO-POST 2000 Application"
+            VALUE "ProductVersion", "1.1.0.4"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
 
 VS_VERSION_INFO VERSIONINFO
  FILEVERSION 1,0,0,1
@@ -854,7 +903,7 @@ BEGIN
     AFX_IDS_SCRESTORE       "Restore the window to normal size"
     AFX_IDS_SCTASKLIST      "Activate Task List"
     IDS_POSTMOST_VERSION_INFO "http://www.CosmicWolf.com"
-    IDS_POSTMOST_VERSION    "YENC-POWER-POST-A&A-v11d [ASSERT & ALAIN]"
+    IDS_POSTMOST_VERSION    "YENC-POWER-POST-A&A-v11f [ASSERT & ALAIN]"
     ID_INDICATOR_FILES      "00000 Files (999.9 MB)"
     ID_INDICATOR_TASK       "Posting Part (00000/00000)"
 END
@@ -1041,61 +1090,6 @@ END
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\PostMost.ico"
-IDR_POSTMOTYPE          ICON                    "res\\PostMostDoc.ico"
-IDI_ICON_TRAY_WAITING   ICON                    "res\\ico00003.ico"
-IDI_ICON_TRAY_READY     ICON                    "res\\icon1.ico"
-IDI_ICON_TRAY_POSTING   ICON                    "res\\ico00001.ico"
-IDI_ICON_TRAY_ERROR     ICON                    "res\\ico00002.ico"
-IDI_ICON_STOP_WATCH     ICON                    "res\\stopwatch.ico"
-IDI_ICON_QUESTION       ICON                    "res\\QUESTION.ICO"
-IDI_ICON_ERROR          ICON                    "res\\ERROR.ICO"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,1
- PRODUCTVERSION 1,0,0,1
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040904b0"
-        BEGIN
-            VALUE "Comments", "Written by Chris Morse"
-            VALUE "FileDescription", "AUTO-POST 2000 MFC Application"
-            VALUE "FileVersion", "1, 0, 0, 1"
-            VALUE "InternalName", "AUTO-POST 2000"
-            VALUE "LegalCopyright", "Copyright (C) 1999"
-            VALUE "OriginalFilename", "PostMost.EXE"
-            VALUE "ProductName", "AUTO-POST 2000 Application"
-            VALUE "ProductVersion", "1.1.0.4"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x409, 1200
-    END
-END
 
 
 /////////////////////////////////////////////////////////////////////////////

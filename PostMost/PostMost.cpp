@@ -33,7 +33,6 @@ END_MESSAGE_MAP()
 CPostMostApp::CPostMostApp()
 {
 	m_pSplashWindow = (CSplashWindow*) NULL;
-	m_nAboutBoxSoundNumber = 0;
 	m_pView = NULL;
 }
 
@@ -384,8 +383,6 @@ class CAboutDlg : public CDialog
 public:
 	CAboutDlg();
 
-	BOOL            m_bSound;
-
 	CRect			m_rectAnimateFrom;
 
 	CBitmap			m_Bitmap;
@@ -424,7 +421,6 @@ CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 {
 	//{{AFX_DATA_INIT(CAboutDlg)
 	//}}AFX_DATA_INIT
-	m_bSound = FALSE;
 	m_rectAnimateFrom.SetRectEmpty();
 	m_Bitmap_Width = 0;
 	m_Bitmap_Width = 0;
@@ -455,24 +451,6 @@ void CPostMostApp::OnAppAbout()
 
 	pMainFrame->GetButtonRect(ID_APP_ABOUT, &aboutDlg.m_rectAnimateFrom);
 
-#ifdef INCLUDESOUND
-	if(((CPostMostView*) (((CMainFrame*) m_pMainWnd)->GetActiveView()))->m_Settings.m_bSound)
-	{
-		switch(m_nAboutBoxSoundNumber % 2)
-		{
-		case 0:
-			PlaySound((LPCTSTR) IDR_WAVE_NOTRIGHTINHEAD, NULL, SND_RESOURCE | SND_ASYNC);
-			break;
-		case 1:
-			PlaySound((LPCTSTR) IDR_WAVE_HARVEY, NULL, SND_RESOURCE | SND_ASYNC);
-			break;
-		}
-
-		++m_nAboutBoxSoundNumber;
-		
-	}
-#endif
-	aboutDlg.m_bSound = ((CPostMostView*) (((CMainFrame*) m_pMainWnd)->GetActiveView()))->m_Settings.m_bSound;
 	aboutDlg.DoModal();
 }
 
@@ -558,11 +536,6 @@ BOOL CAboutDlg::OnInitDialog()
 
 void CAboutDlg::OnButtonGo()
 {
-#ifdef INCLUDESOUND
-	if(m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_YEAH, NULL, SND_RESOURCE | SND_ASYNC);
-#endif
-
 	GetDlgItem(IDC_BUTTON_GO)->EnableWindow(FALSE);
 	ShellExecute(NULL, "open", "http://powerpost.cjb.net/", NULL, NULL, SW_MAXIMIZE );
 	CWaitCursor wc;
@@ -572,11 +545,6 @@ void CAboutDlg::OnButtonGo()
 
 void CAboutDlg::OnButtonGoMail() 
 {
-#ifdef INCLUDESOUND
-	if(m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_YEAH, NULL, SND_RESOURCE | SND_ASYNC);
-#endif
-
 	GetDlgItem(IDC_BUTTON_GO_MAIL)->EnableWindow(FALSE);
 	ShellExecute(NULL, "open", "mailto:assert@powerpost.cjb.net", NULL, NULL, SW_NORMAL);
 	CWaitCursor wc;
@@ -590,11 +558,6 @@ void CAboutDlg::OnDestroy()
 	GetWindowRect(rectWindow);
 
 	CDialog::OnDestroy();
-
-#ifdef INCLUDESOUND
-	if(m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_SHUT, NULL, SND_ASYNC | SND_RESOURCE);
-#endif
 
 	if(!m_rectAnimateFrom.IsRectEmpty())
 		::CM_DrawWireRects(&rectWindow, &m_rectAnimateFrom, 16, 15);

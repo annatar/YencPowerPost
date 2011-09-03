@@ -21,7 +21,6 @@ CPropPage_Add_Subject::CPropPage_Add_Subject() : CPropertyPage(CPropPage_Add_Sub
 	//{{AFX_DATA_INIT(CPropPage_Add_Subject)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
-	m_bSound = FALSE;
 	m_nDir = 0;
 	m_bInsertFilesAtBeginningOfQueue = FALSE;
 	m_bProcessSubdirectories = FALSE;
@@ -35,7 +34,6 @@ CPropPage_Add_Subject::CPropPage_Add_Subject() : CPropertyPage(CPropPage_Add_Sub
 	m_Ex_Filesize = 1048576;
 	m_Ex_nFileCount = 10;
 
-	m_bFirstSound = TRUE;	// To keep first OnSetActive() sound from happening
 	m_bGroupsOK = FALSE;
 }
 
@@ -191,14 +189,5 @@ void CPropPage_Add_Subject::OnChangeEditSubjectTemplate()
 
 BOOL CPropPage_Add_Subject::OnSetActive() 
 {
-	if(m_bSound)
-	{
-#ifdef INCLUDESOUND
-		if(m_bFirstSound == FALSE)
-			PlaySound((LPCTSTR) IDR_WAVE_CLAP, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);	
-#endif
-		m_bFirstSound = FALSE;
-	}
-
 	return CPropertyPage::OnSetActive();
 }

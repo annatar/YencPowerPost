@@ -22,7 +22,6 @@ CPropPage_Add_TextPrefix::CPropPage_Add_TextPrefix() : CPropertyPage(CPropPage_A
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
 	m_pdwActivation = (DWORD*) NULL;
-	m_bSound = FALSE;
 	m_bSendTextPrefix = FALSE;
 	m_bSendTextFirstFileOnly = FALSE;
 	m_bFirstChange = TRUE;

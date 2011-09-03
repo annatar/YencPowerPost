@@ -141,7 +141,6 @@ CPostMostView::CPostMostView()
 	m_prevDropEffect = DROPEFFECT_NONE;
 	// Drag & Drop Support
 	m_cfObjectDescriptor = (CLIPFORMAT) ::RegisterClipboardFormat(_T("Object Descriptor"));
-	m_bPostStopNoSound = FALSE;
 
 	theApp.m_pView=this;
 }
@@ -210,10 +209,6 @@ void CPostMostView::OnInitialUpdate()
 	LoadTasksFromQueue();
 
 	StartWaitTimer();
-
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_LAUGH, NULL, SND_RESOURCE | SND_ASYNC);
-#endif
 
       theApp.ApplySkin(m_Settings.m_szSkin);
 
@@ -438,10 +433,6 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 
 	AfxGetApp()->m_pMainWnd->SetForegroundWindow();
 
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_YEAH, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
-
 	int kk;
 	int nItem;
 
@@ -487,7 +478,6 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 	PP_FileOrder.m_pdwActivation = &dwPageActivation;
 	PP_Checksums.m_pdwActivation = &dwPageActivation;
 
-	PP_Subject.m_bSound = m_Settings.m_bSound;
 	PP_Subject.m_nDir   = nDirectories;
 	PP_Subject.m_pDroppedFiles = &listFileNames;
 	PP_Subject.m_bInsertFilesAtBeginningOfQueue = bInsertFilesAtBeginningOfQueue;
@@ -497,15 +487,10 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 	PP_Subject.m_strSubjectPrefixTemplate = (LPCTSTR) m_Settings.m_szLastSubjectTemplate;
 	PP_Subject.m_last_strSubjectPrefixTemplate=PP_Subject.m_strSubjectPrefixTemplate;
 
-	PP_Groups.m_bSound = m_Settings.m_bSound;
 	PP_Groups.m_pSettings = &m_Settings;
 
-	PP_TextPrefix.m_bSound = m_Settings.m_bSound;
-
-	PP_FileOrder.m_bSound = m_Settings.m_bSound;
 	PP_FileOrder.m_pDWA_FileNames = &listFileNames;
 
-	PP_Checksums.m_bSound = m_Settings.m_bSound;
 	PP_Checksums.m_pDWA_FileNames = &listFileNames;
 	PP_Checksums.m_bGroupThread = bGroupThread;
 	PP_Checksums.m_iPartSize = m_Settings.m_nMaxLines*YENCLEN;
@@ -557,16 +542,10 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 
 	if(PS.DoModal() == IDCANCEL)
 	{
-#ifdef INCLUDESOUND
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 		return(0);
 	}
 
 	strcpy(m_Settings.m_szLastSubjectTemplate, (LPCTSTR) PP_Subject.m_strSubjectPrefixTemplate);
-
-	if(m_Settings.m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_GROOVY, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
 
 	strSubjectPrefixTemplate = (LPCTSTR) PP_Subject.m_strSubjectPrefixTemplate;
 	bInsertFilesAtBeginningOfQueue = PP_Subject.m_bInsertFilesAtBeginningOfQueue;
@@ -1191,15 +1170,8 @@ void CPostMostView::OnPostStop()
 	// Update Tray Icon
 	pMainFrame->NotifyIcon(NIM_MODIFY, IDI_ICON_TRAY_READY);
 
-	if(m_bPostStopNoSound == FALSE)
+	if(m_bRunning == FALSE)
 	{
-#ifdef INCLUDESOUND
-		if(m_Settings.m_bSound)
-		{
-			PlaySound((LPCTSTR) IDR_WAVE_REPRESS, NULL, SND_RESOURCE | SND_ASYNC);
-			::Sleep(400);
-		}
-#endif
 		if(m_bWaiting2 == FALSE)
 		if(AfxMessageBox("Posting In Progress!\n\nStop Running?", MB_ICONEXCLAMATION | MB_OKCANCEL) == IDCANCEL)
 			return;
@@ -1215,8 +1187,7 @@ void CPostMostView::OnPostStop()
 
 	if(!m_ThreadMarshal.Stop_AllThread())
 	{
-		if(m_bPostStopNoSound == FALSE)
-			AfxMessageBox("Error Stopping Poster Thread!", MB_ICONSTOP);
+		AfxMessageBox("Error Stopping Poster Thread!", MB_ICONSTOP);
 		return;
 	}
 
@@ -1238,14 +1209,6 @@ void CPostMostView::OnPostStop()
 		}
 	}
 	m_ThreadMarshal.SetBatchSize(__ComputeBatchSize());
-
-#ifdef INCLUDESOUND
-	if(m_bPostStopNoSound == FALSE)
-	{
-		if((m_Settings.m_bSound == TRUE) && (m_bPostStopNoSound == FALSE))
-			PlaySound((LPCTSTR) IDR_WAVE_SKIDCRASH, NULL, SND_RESOURCE | SND_ASYNC);
-	}
-#endif
 
 	pMainFrame->SetProgressIndicator("");
 
@@ -1281,21 +1244,6 @@ void CPostMostView::OnPostStart()
 	
 	// Update Tray Icon
 	((CMainFrame*) AfxGetApp()->m_pMainWnd)->NotifyIcon(NIM_MODIFY, IDI_ICON_TRAY_POSTING);
-
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound)
-	{
-		switch(::GetTickCount() % 2)
-		{
-		case 0:
-			PlaySound((LPCTSTR) IDR_WAVE_NOWGO, NULL, SND_RESOURCE | SND_ASYNC);
-			break;
-		case 1:
-			PlaySound((LPCTSTR) IDR_WAVE_ALLSYSGO, NULL, SND_RESOURCE | SND_ASYNC);
-			break;
-		}
-	}
-#endif
 
 	m_Time_Started = CTime::GetCurrentTime();
 
@@ -1347,9 +1295,6 @@ void CPostMostView::OnPostSettings()
 
 	PS.DoModal();
 
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_SHUT, NULL, SND_ASYNC | SND_RESOURCE);
-#endif
 	m_Settings.SaveToRegistry();
 
 }
@@ -1390,14 +1335,6 @@ LRESULT CPostMostView::OnThread_NoConnection(WPARAM wParam, LPARAM lParam)
 	sprintf(szResult, "Error Connecting To Server");
 	m_ThreadMarshal.GetResult(iThread, bResult_OK, szResult);
 
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound)
-	{
-		::Sleep(2500);
-		PlaySound((LPCTSTR) IDR_WAVE_DISAPPOINTED, NULL, SND_RESOURCE | SND_SYNC);
-	}
-#endif
-
 	if(m_Settings.m_bAutoRetry)
 	{
 		pMainFrame->NotifyIcon(NIM_MODIFY, IDI_ICON_TRAY_ERROR);
@@ -1435,13 +1372,6 @@ LRESULT CPostMostView::OnThread_ServerNotReady(WPARAM wParam, LPARAM lParam)
 	CMainFrame* pMainFrame = (CMainFrame*) AfxGetApp()->m_pMainWnd;
 	pMainFrame->SetProgressIndicator("");
 	int iThread = wParam/2; wParam&=1;
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound)
-	{
-		::Sleep(2500);
-		PlaySound((LPCTSTR) IDR_WAVE_DISAPPOINTED, NULL, SND_RESOURCE | SND_SYNC);
-	}
-#endif
 
 	TCHAR szMessage[512];
 	sprintf(szMessage, "Server Not Ready!\r\n\r\n%s", m_ThreadMarshal.GetServerConnectString(iThread));
@@ -1499,16 +1429,6 @@ void CPostMostView::PostEnded(int iThread, CTaskObject* pTaskObject, BOOL bSTOP)
 	UpdateDisplay(pTaskObject, szResult);
 	m_ThreadMarshal.SetBatchSize(__ComputeBatchSize());
 
-#ifdef INCLUDESOUND
-	if(bResult_OK)
-	{
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_WOOF, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-	}
-	else
-	{
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_ERROR, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-	}
-#endif
 }
 
 void CPostMostView::PostStopThread(int iThread, CTaskObject* pTaskObject, BOOL bSTOP)
@@ -1590,13 +1510,8 @@ void CPostMostView::CheckStillPosting()
 			return; // still posting
 	}
 	// no more thread posting
-	m_bPostStopNoSound = TRUE; 
 	OnPostStop();
-	m_bPostStopNoSound = FALSE;
-#ifdef INCLUDESOUND
-	::Sleep(960);
-	if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_XFER_COMPLETE, NULL, SND_ASYNC | SND_RESOURCE);
-#endif
+
 }
 
 void CPostMostView::OnUpdateFileClearDoneFiles(CCmdUI* pCmdUI) 
@@ -1779,11 +1694,6 @@ void CPostMostView::OnFileAddFiles()
 
 	if(!::CM_IsDirectory(F_Dlg.m_ofn.lpstrInitialDir))
 		strcpy(szInitialDirectory, szCurrentDirectory);
-
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound)
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_TAP, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 	
 	if(F_Dlg.DoModal() == IDOK)
 	{
@@ -1806,9 +1716,6 @@ void CPostMostView::OnFileAddFiles()
 		}
 		else
 		{
-#ifdef INCLUDESOUND
-			if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 		}
 
 	// Save Current Directory for next time..
@@ -1818,9 +1725,6 @@ void CPostMostView::OnFileAddFiles()
 	}
 	else
 	{
-#ifdef INCLUDESOUND
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 	}
 
 	// Release Buffer
@@ -2075,14 +1979,10 @@ int CPostMostView::ViewTaskProperties(CTaskObject* pTaskObject, LPCTSTR szTitle,
 	proxyTaskObject.Copy(pTaskObject);
 
 	PP_FileAndParts.m_pTaskObject = &proxyTaskObject;
-	PP_FileAndParts.m_bSound = m_Settings.m_bSound;
 	PP_Groups.m_pTaskObject = &proxyTaskObject;
 	PP_Groups.m_pSettings = &m_Settings;
-	PP_Groups.m_bSound = m_Settings.m_bSound;
 	PP_PrefixText.m_pTaskObject = &proxyTaskObject;
-	PP_PrefixText.m_bSound = m_Settings.m_bSound;
 	PP_Log.m_pTaskObject = &proxyTaskObject;
-	PP_Log.m_bSound = m_Settings.m_bSound;
 
 
 	if(PS.DoModal() == IDCANCEL)
@@ -2110,7 +2010,6 @@ void CPostMostView::OnFileHistory()
 	pMainFrame->GetButtonRect(ID_FILE_HISTORY,&Dlg.m_rectAnimateFrom);
 
 	Dlg.m_pView = this;
-	Dlg.m_bSound = m_Settings.m_bSound;
 	Dlg.DoModal();
 }
 
@@ -2483,7 +2382,6 @@ void CPostMostView::OnFileReassignNewsgroups()
 	CPropPage_Add_Groups	PP_Groups;
 
 	PP_Groups.m_pdwActivation = &dwPageActivation;
-	PP_Groups.m_bSound = m_Settings.m_bSound;
 	PP_Groups.m_pSettings = &m_Settings;
 
 	PS.SetTitle("Re-Assign Newsgroups");
@@ -2492,17 +2390,9 @@ void CPostMostView::OnFileReassignNewsgroups()
 
 	if(PS.DoModal() == IDCANCEL)
 	{
-#ifdef INCLUDESOUND
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 		return;
 	}
 	
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_SHUT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
-
 	LPCTSTR lpszGroupList = (LPCTSTR) PP_Groups.m_strGroupList;
 
 	CTaskObject* pTaskObject;
@@ -2774,9 +2664,7 @@ void CPostMostView::OnTimer(UINT nIDEvent)
 		{
 			// TODO: Stop and Restart
 			TRACE("**** Stall Timer Exceeded - Start/Restart!\n");
-			m_bPostStopNoSound = TRUE;
 			OnPostStop();
-			m_bPostStopNoSound = FALSE;
 			OnPostStart();
 
 		}
@@ -3356,7 +3244,6 @@ int CPostMostView::GeneratePar2Vol(par2::PostFiles *post, LPCSTR subject, const 
 
 	//listFileNames.Add(CString(pTaskObject->m_szFilename));
 
-	PP_Subject.m_bSound = m_Settings.m_bSound;
 	PP_Subject.m_nDir   = 0;
 	PP_Subject.m_pDroppedFiles = &listFileNames;
 	PP_Subject.m_bInsertFilesAtBeginningOfQueue = FALSE;
@@ -3366,13 +3253,9 @@ int CPostMostView::GeneratePar2Vol(par2::PostFiles *post, LPCSTR subject, const 
 
 	PP_Subject.m_strSubjectPrefixTemplate = (LPCTSTR) subject;
 
-	PP_Groups.m_bSound = m_Settings.m_bSound;
 	PP_Groups.m_pSettings = &m_Settings;
 	PP_Groups.m_strGroupList = groups;
 
-	PP_TextPrefix.m_bSound = m_Settings.m_bSound;
-
-	PP_Recovery.m_bSound = m_Settings.m_bSound;
 	//PP_Recovery.m_pDWA_FileNames = &listFileNames;
 	PP_Recovery.m_sPAR2=post->basename;
 	PP_Recovery.m_bGroupThread = m_Settings.m_bFileThread;
@@ -3418,9 +3301,6 @@ int CPostMostView::GeneratePar2Vol(par2::PostFiles *post, LPCSTR subject, const 
 
 	if(PS.DoModal() == IDCANCEL)
 	{
-#ifdef INCLUDESOUND
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 		delete post;
 		return 0;
 	}
@@ -3466,9 +3346,6 @@ int CPostMostView::GeneratePar2Vol(par2::PostFiles *post, LPCSTR subject, const 
 	{
 		progress.Format("Creating PAR2 Volume files FAILED at Start :-(");
 		pMainFrame->SetStatusText(progress);
-#ifdef INCLUDESOUND
-		if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 		delete worker;
 		delete post;
 		return 0;
@@ -3586,11 +3463,6 @@ int CPostMostView::GeneratePar2Vol(par2::PostFiles *post, LPCSTR subject, const 
 		delete worker;
 		delete post;
 	}
-
-#ifdef INCLUDESOUND
-	if(m_Settings.m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_GROOVY, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 
 	// Compute entire batch size
 	m_ThreadMarshal.SetBatchSize(__ComputeBatchSize());

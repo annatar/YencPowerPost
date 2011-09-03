@@ -58,11 +58,6 @@ void CPostingProgressDlg::OnOK()
 
 void CPostingProgressDlg::OnCancel() 
 {
-#ifdef INCLUDESOUND
-	if(m_pView->m_Settings.m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_RESOURCE | SND_ASYNC);
-#endif
-
 	if(m_pView != (CPostMostView*) NULL)
 		m_pView->m_pProgressDlg = (CPostingProgressDlg*) NULL;
 

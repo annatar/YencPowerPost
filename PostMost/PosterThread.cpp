@@ -791,9 +791,6 @@ void CPosterThread::OnMessage_POST_in(WPARAM wParam, CTaskObject* pTaskObject)
 			nProgressPart = (int) d_POS;
 			m_pThreadMarshal->SetProgress(m_iThread, nProgressTotal, 100);
 			::Sleep(0);
-#ifdef INCLUDESOUND
-			if(m_Settings.m_bSound) PlaySound((LPCTSTR) IDR_WAVE_DRIP, NULL, SND_ASYNC | SND_RESOURCE | SND_NOSTOP);
-#endif
 		}
 
 		if(curPart == nParts)

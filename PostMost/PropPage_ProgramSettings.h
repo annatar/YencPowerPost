@@ -47,7 +47,6 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnCheckHLLast();
 	afx_msg void OnCheckShowProgressOnStart();
-	afx_msg void OnCheckSound();
 	afx_msg void OnChangeEditMaxLines();
 	afx_msg void OnCheckSortfiles();
 	afx_msg void OnCheckAutoRetry();

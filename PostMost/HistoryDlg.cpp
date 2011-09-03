@@ -26,7 +26,6 @@ CHistoryDlg::CHistoryDlg(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CHistoryDlg)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
-	m_bSound = TRUE;
 	m_nEntries = 0;
 	m_nDeleted = 0;
 	m_pView = (CPostMostView*) NULL;
@@ -63,11 +62,6 @@ void CHistoryDlg::OnDestroy()
 	CRect rectWindow;
 	GetWindowRect(rectWindow);
 
-#ifdef INCLUDESOUND
-	if(m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_VAULT, NULL, SND_RESOURCE | SND_ASYNC);
-#endif
-
 	CDialog::OnDestroy();
 	
 	if(!m_rectAnimateFrom.IsRectEmpty())
@@ -96,11 +90,6 @@ BOOL CHistoryDlg::OnInitDialog()
 
 	BuildHistoryFileStats(pListCtrl);
 
-#ifdef INCLUDESOUND
-	if(m_bSound)
-		PlaySound((LPCTSTR) IDR_WAVE_TAP, NULL, SND_RESOURCE | SND_ASYNC);
-#endif
-	
 	if(!m_rectAnimateFrom.IsRectEmpty())
 		::CM_DrawWireRects(&m_rectAnimateFrom, &rectWindow, 16, 15);
 
@@ -256,8 +245,6 @@ void CHistoryDlg::OnButtonHistDelSel()
 
 	int nCount = pListCtrl->GetItemCount();
 	int nSelected = pListCtrl->GetSelectedCount();
-
-	if(m_bSound) PlaySound((LPCTSTR) IDR_WAVE_HISTORY_ERASER, NULL, SND_ASYNC | SND_RESOURCE);
 
 	TCHAR szTT[64];
 	sprintf(szTT, "Delete the %d selected items from the history file?", nSelected);

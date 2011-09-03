@@ -28,8 +28,6 @@ public:
 
 	DWORD* m_pdwActivation;
 
-	BOOL m_bSound;
-
 	CString m_strSubjectPrefixTemplate;
 	CString m_last_strSubjectPrefixTemplate;
 	BOOL m_bGroupsOK;
@@ -60,7 +58,6 @@ public:
 
 // Implementation
 protected:
-	BOOL m_bFirstSound;
 
 	// Generated message map functions
 	//{{AFX_MSG(CPropPage_Add_Subject)

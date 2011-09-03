@@ -1,3 +1,11 @@
+Version 11F (2011-09-03)
+======================
+- Removed the sound support.
+
+Version 11E (2011-09-03)
+======================
+- Not Released.
+
 Version 11D (2010-05-26)
 ======================
 - YencPowerPost now supports dynamic loading of MFC extension DLLs for providing localized

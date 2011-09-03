@@ -130,7 +130,6 @@ public:
 #endif
 
 protected:
-	BOOL m_bPostStopNoSound;
 
 	COLORREF m_Windows_View_Color_BkColor;
 	COLORREF m_Windows_View_Color_TextColor;

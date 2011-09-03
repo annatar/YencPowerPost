@@ -22,7 +22,6 @@ CPropPage_Add_Groups::CPropPage_Add_Groups() : CPropertyPage(CPropPage_Add_Group
 	//{{AFX_DATA_INIT(CPropPage_Add_Groups)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
-	m_bSound = FALSE;
 	m_pSettings = NULL;
 	m_pdwActivation = (DWORD*) NULL;
 }

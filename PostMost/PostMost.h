@@ -13,7 +13,7 @@
 #endif
 
 //#ifndef TITLE
-#define TITLE "YENC-POWER-POST-A&A-v11d"
+#define TITLE "YENC-POWER-POST-A&A-v11f"
 //#endif
 
 #include "resource.h"       // main symbols
@@ -44,8 +44,6 @@ public:
 	CImageList      m_ImageList;
 	CPostMostView*  m_pView;
 	HINSTANCE m_hInstResDLL;
-
-	int m_nAboutBoxSoundNumber;
 
 	void ApplySkin(const char* skin);
 
