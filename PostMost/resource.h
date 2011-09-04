@@ -185,11 +185,17 @@
 #define IDC_BUTTON_TASK_ITEM_CLEAR_LOG  1047
 #define IDC_PROGRESS_FILE10             1047
 #define IDC_BUTTON_PARTS_MODIFY         1048
+#define IDC_EDIT_CUR_ARTICLE11          1048
 #define IDC_BUTTON_TASK_PARTS_CHECK_ALL 1049
+#define IDC_PROGRESS_ARTICLE11          1049
 #define IDC_BUTTON_TASK_PARTS_UNCHECK_ALL 1050
+#define IDC_PROGRESS_FILE11             1050
 #define IDC_CHECK_TASK_POST_PREFIX_TEXT 1051
+#define IDC_EDIT_CUR_ARTICLE12          1051
 #define IDC_EDIT_NEW_MAX_LINES          1052
+#define IDC_PROGRESS_ARTICLE12          1052
 #define IDC_LIST_TASK_LOG               1053
+#define IDC_PROGRESS_FILE12             1053
 #define IDC_LIST_HISTORY                1054
 #define IDC_BUTTON_HIST_COMPACT         1058
 #define IDC_BUTTON_HIST_DEL_SEL         1059
@@ -222,7 +228,9 @@
 #define IDC_CHECK_SEND_TEXT_PREFIX      1082
 #define IDC_EDIT_GROUPS10               1082
 #define IDC_STATIC_EXAMPLE_INFO         1083
+#define IDC_EDIT_GROUPS11               1083
 #define IDC_STATIC_TIME                 1084
+#define IDC_EDIT_GROUPS12               1084
 #define IDC_COMBO_HOUR                  1085
 #define IDC_COMBO_MIN                   1086
 #define IDC_STATIC_GRAPH                1087

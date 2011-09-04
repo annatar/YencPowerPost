@@ -1,6 +1,7 @@
 Version 11F (2011-09-03)
 ======================
 - Removed the sound support.
+- Modified posting logic to support up to 12 concurrent posting threads (thanks camelpost :) )
 
 Version 11E (2011-09-03)
 ======================
