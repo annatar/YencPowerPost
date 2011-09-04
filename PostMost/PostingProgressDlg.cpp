@@ -71,9 +71,6 @@ void CPostingProgressDlg::OnCancel()
 		CMainFrame* pMainFrame = (CMainFrame*) AfxGetApp()->m_pMainWnd;
 		pMainFrame->GetButtonRect(ID_POST_THREADS,m_rectAnimateFrom);
 
-		CRect rectWindow;
-		GetWindowRect(&rectWindow);
-		::CM_DrawWireRects(&rectWindow, &m_rectAnimateFrom, 16, 15);
 	}
 
 	CDialog::OnCancel();
@@ -144,9 +141,6 @@ BOOL CPostingProgressDlg::OnInitDialog()
 
 	if(!m_rectAnimateFrom.IsRectEmpty())
 	{
-		CRect rectWindow;
-		GetWindowRect(&rectWindow);
-		::CM_DrawWireRects(&m_rectAnimateFrom, &rectWindow, 16, 15);
 	}
 
 	GetDlgItem(IDC_EDIT_SERVER)->SetWindowText(m_pView->m_Settings.m_szServerName);
@@ -202,22 +196,46 @@ void CPostingProgressDlg::OnTimer(UINT nIDEvent)
 		{IDC_EDIT_CUR_ARTICLE
 		,IDC_EDIT_CUR_ARTICLE2
 		,IDC_EDIT_CUR_ARTICLE3
-		,IDC_EDIT_CUR_ARTICLE4};
+		,IDC_EDIT_CUR_ARTICLE4
+		,IDC_EDIT_CUR_ARTICLE5
+		,IDC_EDIT_CUR_ARTICLE6
+		,IDC_EDIT_CUR_ARTICLE7
+		,IDC_EDIT_CUR_ARTICLE8
+		,IDC_EDIT_CUR_ARTICLE9
+		,IDC_EDIT_CUR_ARTICLE10};
 		static const int thread_progress_article_id[NPOSTTHREAD] = 
 		{IDC_PROGRESS_ARTICLE1
 		,IDC_PROGRESS_ARTICLE2
 		,IDC_PROGRESS_ARTICLE3
-		,IDC_PROGRESS_ARTICLE4};
+		,IDC_PROGRESS_ARTICLE4
+		,IDC_PROGRESS_ARTICLE5
+		,IDC_PROGRESS_ARTICLE6
+		,IDC_PROGRESS_ARTICLE7
+		,IDC_PROGRESS_ARTICLE8
+		,IDC_PROGRESS_ARTICLE9
+		,IDC_PROGRESS_ARTICLE10};
 		static const int thread_groups_id[NPOSTTHREAD] = 
 		{IDC_EDIT_GROUPS
 		,IDC_EDIT_GROUPS2
 		,IDC_EDIT_GROUPS3
-		,IDC_EDIT_GROUPS4};
+		,IDC_EDIT_GROUPS4
+		,IDC_EDIT_GROUPS5
+		,IDC_EDIT_GROUPS6
+		,IDC_EDIT_GROUPS7
+		,IDC_EDIT_GROUPS8
+		,IDC_EDIT_GROUPS9
+		,IDC_EDIT_GROUPS10};
 		static const int thread_progress_file_id[NPOSTTHREAD] = 
 		{IDC_PROGRESS_FILE1
 		,IDC_PROGRESS_FILE2
 		,IDC_PROGRESS_FILE3
-		,IDC_PROGRESS_FILE4};
+		,IDC_PROGRESS_FILE4
+		,IDC_PROGRESS_FILE5
+		,IDC_PROGRESS_FILE6
+		,IDC_PROGRESS_FILE7
+		,IDC_PROGRESS_FILE8
+		,IDC_PROGRESS_FILE9
+		,IDC_PROGRESS_FILE10};
 
 		for (int i=0;i<NPOSTTHREAD;i++)
 		{

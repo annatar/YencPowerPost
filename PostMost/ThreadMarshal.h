@@ -9,7 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#define NPOSTTHREAD 4
+#define NPOSTTHREAD 10
 
 struct TransmissionStats
 {
