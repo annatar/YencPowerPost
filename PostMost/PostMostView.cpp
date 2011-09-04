@@ -588,7 +588,6 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 		int recover_flags=0;
 
 		if (PP_Checksums.m_sSFV.GetLength()>0) recover_flags|=par2::PostFiles::CALC_CRC;
-		if (PP_Checksums.m_sPAR.GetLength()>0) recover_flags|=par2::PostFiles::CALC_CRC|par2::PostFiles::CALC_HASH;
 		if (PP_Checksums.m_sPAR2.GetLength()>0) recover_flags|=par2::PostFiles::CALC_CRC|par2::PostFiles::CALC_HASH|par2::PostFiles::CALC_PART;
 
 		if (recover_flags!=0)
@@ -620,24 +619,6 @@ afx_msg LRESULT CPostMostView::OnFilesDropped(WPARAM wParam, LPARAM lParam)
 					progress.Format("Error on file %s:%s",PP_Checksums.m_sPAR2,error);
 					AfxMessageBox(progress,MB_OK|MB_ICONERROR);
 					par2name = NULL;
-				}
-				pMainFrame->SetStatusText(progress);
-			}
-			if (PP_Checksums.m_sPAR.GetLength()>0)
-			{
-				progress.Format("Generating PAR file %s...",PP_Checksums.m_sPAR);
-				pMainFrame->SetStatusText(progress);
-				const char* parname = postfiles.generatePAR(PP_Checksums.m_sPAR);
-				if (parname!=NULL && parname[0]!='\0')
-				{
-					listFileNames.InsertAt(0,parname); ++par2pos;
-					progress.Format("PAR file %s generated.",parname);
-				}
-				else
-				{
-					const char* error=strerror(errno);
-					progress.Format("Error on file %s:%s",PP_Checksums.m_sPAR,error);
-					AfxMessageBox(progress,MB_OK|MB_ICONERROR);
 				}
 				pMainFrame->SetStatusText(progress);
 			}

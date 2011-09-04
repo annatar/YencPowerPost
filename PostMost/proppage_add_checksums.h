@@ -30,7 +30,6 @@ public:
 	CStringArray*  m_pDWA_FileNames;
 
 	CString m_sSFV;
-	CString m_sPAR;
 	CString m_sPAR2;
 	CString m_sNZB;
 
@@ -61,9 +60,6 @@ protected:
 	afx_msg void OnCheckGroupthread();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonSfv();
-	afx_msg void OnCheckPar();
-	afx_msg void OnChangeEditPar();
-	afx_msg void OnButtonPar();
 	afx_msg void OnCheckPar2();
 	afx_msg void OnChangeEditPar2();
 	afx_msg void OnButtonPar2();

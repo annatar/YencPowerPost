@@ -629,7 +629,6 @@ public:
 	void calcFile(int num,int flags=-1);
 	void calcbasename();
 	const char* generateSFV(const char* fname);
-	const char* generatePAR(const char* fname);
 	const char* generatePAR2(const char* fname);
 	~PostFiles();
 /*

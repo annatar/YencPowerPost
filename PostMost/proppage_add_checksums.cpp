@@ -43,9 +43,6 @@ BEGIN_MESSAGE_MAP(CPropPage_Add_Checksums, CPropertyPage)
 	ON_EN_CHANGE(IDC_EDIT_SFV, OnChangeEditSfv)
 	ON_BN_CLICKED(IDC_CHECK_GROUPTHREAD, OnCheckGroupthread)
 	ON_BN_CLICKED(IDC_BUTTON_SFV, OnButtonSfv)
-	ON_BN_CLICKED(IDC_CHECK_PAR, OnCheckPar)
-	ON_EN_CHANGE(IDC_EDIT_PAR, OnChangeEditPar)
-	ON_BN_CLICKED(IDC_BUTTON_PAR, OnButtonPar)
 	ON_BN_CLICKED(IDC_CHECK_PAR2, OnCheckPar2)
 	ON_EN_CHANGE(IDC_EDIT_PAR2, OnChangeEditPar2)
 	ON_BN_CLICKED(IDC_BUTTON_PAR2, OnButtonPar2)
@@ -94,10 +91,6 @@ BOOL CPropPage_Add_Checksums::OnInitDialog()
 	GetDlgItem(IDC_EDIT_SFV)->EnableWindow(FALSE);
 	GetDlgItem(IDC_BUTTON_SFV)->EnableWindow(FALSE);
 
-	((CButton*) GetDlgItem(IDC_CHECK_PAR))->SetCheck(0);
-	GetDlgItem(IDC_EDIT_PAR)->EnableWindow(FALSE);
-	GetDlgItem(IDC_BUTTON_PAR)->EnableWindow(FALSE);
-
 	((CButton*) GetDlgItem(IDC_CHECK_PAR2))->SetCheck(0);
 	GetDlgItem(IDC_EDIT_PAR2)->EnableWindow(FALSE);
 	GetDlgItem(IDC_BUTTON_PAR2)->EnableWindow(FALSE);
@@ -122,8 +115,6 @@ BOOL CPropPage_Add_Checksums::OnInitDialog()
 	{
 		buf.Format("%s.sfv",m_pPostFiles->basename);
 		GetDlgItem(IDC_EDIT_SFV)->SetWindowText(buf);
-		buf.Format("%s.par",m_pPostFiles->basename);
-		GetDlgItem(IDC_EDIT_PAR)->SetWindowText(buf);
 		buf.Format("%s.par2",m_pPostFiles->basename);
 		GetDlgItem(IDC_EDIT_PAR2)->SetWindowText(buf);
 		buf.Format("%s.nzb",m_pPostFiles->basename);
@@ -170,39 +161,6 @@ void CPropPage_Add_Checksums::OnButtonSfv()
 	// Reset Current Directory
 	::SetCurrentDirectory(szCurrentDirectory);
 */		
-}
-
-void CPropPage_Add_Checksums::OnCheckPar() 
-{
-	int check=((CButton*)GetDlgItem(IDC_CHECK_PAR))->GetCheck();
-	GetDlgItem(IDC_EDIT_PAR)->EnableWindow( check );
-	GetDlgItem(IDC_BUTTON_PAR)->EnableWindow( check );
-	if (check)
-		GetDlgItem(IDC_EDIT_PAR)->GetWindowText(m_sPAR);
-	else
-		m_sPAR=CString("");
-}
-
-void CPropPage_Add_Checksums::OnChangeEditPar() 
-{
-	int check=((CButton*)GetDlgItem(IDC_CHECK_PAR))->GetCheck();
-	if (check)
-		GetDlgItem(IDC_EDIT_PAR)->GetWindowText(m_sPAR);
-	else
-		m_sPAR=CString("");
-}
-
-void CPropPage_Add_Checksums::OnButtonPar() 
-{
-	CString filename;
-	GetDlgItem(IDC_EDIT_PAR)->GetWindowText(filename);
-	CFileDialog F_Dlg(FALSE,"par",filename,OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,"Parity Volume 1.0 Files (*.par)|*.par|All Files (*.*)|*.*||");
-	if (F_Dlg.DoModal()==IDOK)
-	{
-		filename = F_Dlg.GetPathName();
-		GetDlgItem(IDC_EDIT_PAR)->SetWindowText(filename);
-		OnChangeEditPar();
-	}
 }
 
 void CPropPage_Add_Checksums::OnCheckPar2() 

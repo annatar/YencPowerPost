@@ -255,9 +255,6 @@
 #define IDC_CHECK_SAMESIZE              1107
 #define IDC_BUTTON_SFV                  1107
 #define IDC_TEXT_PAR2_INFO              1108
-#define IDC_EDIT_PAR                    1108
-#define IDC_CHECK_PAR                   1109
-#define IDC_BUTTON_PAR                  1110
 #define IDC_EDIT_PAR2                   1111
 #define IDC_EDIT_FIRST                  1112
 #define IDC_CHECK_PAR2                  1112
